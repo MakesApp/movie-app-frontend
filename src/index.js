@@ -3,12 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './services/redux/store';
+import { moviesApi } from './services/api/apiSlice';
+import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+
+  
+  // <React.StrictMode>
+    <Provider store={store}>
+<ApiProvider api={moviesApi}>
     <App />
-  </React.StrictMode>
+    </ApiProvider>
+    </Provider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
