@@ -5,8 +5,11 @@ const store=configureStore({
     reducer:{
         [moviesApi.reducerPath]:moviesApi.reducer
     },
+    
     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(moviesApi.middleware),
-    devTools: process.env.NODE_ENV !== 'production',
+    devTools:process.env.NODE_ENV!=="production"
+
+    
 
 
 })
