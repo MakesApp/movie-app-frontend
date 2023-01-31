@@ -5,12 +5,6 @@
 	},
 	"extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
 	"overrides": [
-		{
-			"files": ["*-test.js", "*.spec.js"],
-			"rules": {
-				"no-unused-expressions": "off"
-			}
-		}
 	],
 	"parserOptions": {
 		"ecmaVersion": "latest",
