@@ -1,16 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 const intialState={
-    users:[]
+    user:null
 }
 const userSlice=createSlice({
 name:"userSlice",
 intialState,
 reducers:{
-    loggedin:(state=intialState)=>{
-        state.users.push({
-            isLoggedin:false
-        })
-
 
 
     }
@@ -18,6 +13,6 @@ reducers:{
     
 
 }
-})
-export const {loggedin}=userSlice.actions
+)
+export const {}=userSlice.actions
 export default userSlice.reducer
