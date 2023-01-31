@@ -1,15 +1,14 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import HomePage from '../routes/Homepage'
+import HomePage from '../pages/Homepage'
 function Indexroutes() {
   return (
-    <div className='Routes'>
         <BrowserRouter>
         <Routes>
-            <Route path="/" element={<HomePage/>}/>
+            <Route path="/homepage" element={<HomePage/>}/>
         </Routes>
         </BrowserRouter>
-    </div>
+    
   )
 }
 

@@ -1,5 +1,5 @@
 import './App.css';
-import Indexroutes from './components/IndexRoutes';
+import Indexroutes from './routes/IndexRoutes';
 function App() {
   return (
     <div className="App">
