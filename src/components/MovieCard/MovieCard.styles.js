@@ -1,7 +1,7 @@
 import { device } from './device';
 import styled from 'styled-components';
 
-const MovieCards = styled.div`
+const MovieCard = styled.div`
   display: flex;
   // Mobile friendly by default
   flex-direction: column;
@@ -17,4 +17,4 @@ const MovieCards = styled.div`
   }
 `;
 
-export default MovieCards;
+export default MovieCard;
