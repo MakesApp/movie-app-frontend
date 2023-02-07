@@ -14,8 +14,5 @@ reducer,
     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(moviesApi.middleware),
     devTools:process.env.NODE_ENV!=="production"
 
-    
-
-
-})
-export default store
+});
+export default store;
