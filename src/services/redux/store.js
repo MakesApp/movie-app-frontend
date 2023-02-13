@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit"
-import { moviesApi } from "../api/apiSlice"
+import { moviesApi } from "../api/movieSlice"
 import userSlice from "./userSlice.js"
 const reducer = combineReducers({
     [moviesApi.reducerPath]:moviesApi.reducer,

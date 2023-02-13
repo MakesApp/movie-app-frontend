@@ -10,7 +10,7 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["react", "react-hooks"],
+	"plugins": ["react", "react-hooks","prettier"],
 	"rules": {
 		"indent": ["error", "tab"],
 		"linebreak-style": ["error", "windows"],
