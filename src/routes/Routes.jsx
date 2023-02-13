@@ -11,6 +11,9 @@ function Routes() {
 			<Outlet />	
 			<Routes>
 				<Route path='/' element={<HomePage />}></Route>
+				<Route path="/ai-generated-movies" />
+        <Route path="/advanced-search" />
+        <Route path="/popular-actors" />
 			</Routes>
 			</Suspense>
 </>
