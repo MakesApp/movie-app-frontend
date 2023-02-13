@@ -11,11 +11,11 @@ export const moviesApi=createApi({
     endpoints:(builder)=>({
         getLatestMovies:builder.query({
             query:()=>GET_LATEST_MOVIES(),
-            providesTags:["Moviesapi"]
+           
         }),
         getTopMovies:builder.query({
             query:()=>GET_TOP_MOVIES(),
-            providesTags:["Moviesapi"]
+           
         })
 
 
