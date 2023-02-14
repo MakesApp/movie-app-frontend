@@ -1,10 +1,10 @@
-import React from 'react';
-import './App.css';
-import Indexroutes from './routes/IndexRoutes';
+import React from "react";
+import "./App.css";
+import RouteConfig from "./routes/RouteConfig";
 function App() {
 	return (
 		<div className='App'>
-			<Indexroutes />
+			<RouteConfig />
 		</div>
 	);
 }
