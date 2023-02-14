@@ -18,11 +18,12 @@
 	"plugins": ["react", "react-hooks","prettier"],
 	"rules": {
 		"indent": ["error", "tab"],
-		"linebreak-style": ["error", "windows"],
+		// "linebreak-style": ["error", "windows"],
+		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
-		"no-multi-spaces": ["error"]
+		"react/react-in-jsx-scope": "off"
 	}
 }
