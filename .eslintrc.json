@@ -15,11 +15,7 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-<<<<<<< Updated upstream
 	"plugins": ["react", "react-hooks","prettier"],
-=======
-	"plugins": ["react", "react-hooks", "prettier"],
->>>>>>> Stashed changes
 	"rules": {
 		"indent": ["error", "tab"],
 		// "linebreak-style": ["error", "windows"],
