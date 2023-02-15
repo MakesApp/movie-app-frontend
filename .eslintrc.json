@@ -18,10 +18,8 @@
 	"plugins": ["react", "react-hooks", "prettier"],
 	"rules": {
 		"indent": ["error", "tab"],
-		// "linebreak-style": ["error", "windows"],
 		"no-unused-vars": "warn",
-    	"no-console": "warn",
-		"linebreak-style": ["error", "unix"],
+		"no-console": "warn",
 		"semi": ["error", "always"],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
