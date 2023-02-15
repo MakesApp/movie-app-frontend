@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { MOVIES_PER_PAGE } from './constants';
+import { Link } from "react-router-dom";
+import { MOVIES_PER_PAGE } from "./constants";
 /* eslint-disable react/prop-types */
 const Pagination = ({ totalPage, pageNumber, path }) => {
 	return (
@@ -10,7 +10,7 @@ const Pagination = ({ totalPage, pageNumber, path }) => {
 			{[...Array(Math.ceil(totalPage / MOVIES_PER_PAGE))].map((x, i) => (
 				<Link
 					key={i}
-					style={{ color: parseInt(pageNumber) - 1 === i ? 'red' : 'blue' }}
+					style={{ color: parseInt(pageNumber) - 1 === i ? "red" : "blue" }}
 					className='button'
 					to={`${path}/${i + 1}`}
 				>

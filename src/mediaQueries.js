@@ -1,16 +1,16 @@
 const minSize = {
-	mobileS: '320px',
-	mobileL: '481px',
-	tablet: '768px',
-	laptop: '1025px',
-	desktop: '1281px',
+	mobileS: "320px",
+	mobileL: "481px",
+	tablet: "768px",
+	laptop: "1025px",
+	desktop: "1281px",
 };
 
 const maxSize = {
-	mobileS: '480px',
-	mobileL: '767px',
-	tablet: '1024px',
-	laptop: '1280px',
+	mobileS: "480px",
+	mobileL: "767px",
+	tablet: "1024px",
+	laptop: "1280px",
 };
 
 export const device = {

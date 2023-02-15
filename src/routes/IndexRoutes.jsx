@@ -1,7 +1,7 @@
 // import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Pagination from '../components/Pagination/Pagination';
-import HomePage from '../pages/Homepage';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Pagination from "../components/Pagination/Pagination";
+import HomePage from "../pages/Homepage";
 function Indexroutes() {
 	return (
 		<BrowserRouter>

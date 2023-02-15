@@ -1,6 +1,6 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { moviesApi } from '../api/movieSlice';
-import userSlice from './userSlice.js';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { moviesApi } from "../api/movieSlice";
+import userSlice from "./userSlice.js";
 const reducer = combineReducers({
 	[moviesApi.reducerPath]: moviesApi.reducer,
 	userSlice: userSlice,
@@ -11,6 +11,6 @@ const store = configureStore({
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware().concat(moviesApi.middleware),
 	/* eslint-disable */
-	devTools: process.env.NODE_ENV !== 'production',
+	devTools: process.env.NODE_ENV !== "production",
 });
 export default store;

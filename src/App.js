@@ -1,19 +1,17 @@
-// import React from 'react';
-import { useParams } from 'react-router';
-import './App.css';
-import Pagination from './components/Pagination/Pagination';
-import Indexroutes from './routes/IndexRoutes';
+import { useParams } from "react-router";
+import Pagination from "./components/Pagination/Pagination";
+import Footer from "./layout/Footer/Footer";
+import Header from "./layout/Header/Header";
+import RouteConfig from "./routes/RouteConfig";
+
 function App() {
 	let { page } = useParams();
 	return (
-		<div className='App'>
-			<Indexroutes />
-			<Pagination
-				totalPage={20}
-				pageNumber={(page = page ?? '1')}
-				path={'/topmovies/page'}
-			/>
-		</div>
+		<>
+			<Header />
+			<RouteConfig />
+			<Footer />
+		</>
 	);
 }
 

@@ -1,5 +1,5 @@
-import { device } from './device';
-import styled from 'styled-components';
+import { device } from "./device";
+import styled from "styled-components";
 
 const MovieCards = styled.div`
 	display: flex;
