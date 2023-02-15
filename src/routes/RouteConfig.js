@@ -1,8 +1,7 @@
-import {  Routes } from "react-router-dom";
+import { Routes } from "react-router-dom";
 
 const RouteConfig = () => {
-	return <Routes>
-	</Routes>;
+	return <Routes></Routes>;
 };
 
 export default RouteConfig;
