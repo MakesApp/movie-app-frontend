@@ -17,11 +17,11 @@
 	},
 	"plugins": ["react", "react-hooks", "prettier"],
 	"rules": {
-		"indent": ["error", "tab"],
-		// "linebreak-style": ["error", "windows"],
+		"indent": ["warn", "tab"],
 		"no-unused-vars": "warn",
 		"no-console": "warn",
 		"linebreak-style": ["error", "unix"],
+		"react/prop-types": 0,
 		"semi": ["error", "always"],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
