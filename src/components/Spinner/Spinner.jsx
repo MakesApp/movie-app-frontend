@@ -1,73 +1,38 @@
 import React from 'react';
-import React, { useState } from 'react';
 
-const App = () => {
+import styled, { keyframes } from 'styled-components';
 
-const [isLoading, setIsLoading] = useState(false);
-const [data, setData] = useState([]);
+const spinAnimation = keyframes`
+  to { transform: rotate(360deg); }
+`;
 
-const handleClick = () => {
-  setIsLoading(true);
-  //  
-  let newData = [1, 2, 3, 4, 5];
-  setTimeout(() => {
-    setData(newData);
-    setIsLoading(false);
-  }, 3000);
-};
+const SpinnerWrapper = styled.div`
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+`;
 
-return (
-  <div>
-    {isLoading ? (
-      <div className="spinner"></div>
-    ) : (
-      <div>
-        <button onClick={handleClick}>Fetch Data</button>
-        <ul>
-          {data.map(item => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    )}
-  </div>
+const SpinnerInner = styled.div`
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  animation: ${spinAnimation} 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+`;
+
+const Spinner = () => (
+  <SpinnerWrapper>
+    <SpinnerInner />
+  </SpinnerWrapper>
 );
-};
 
-export default App;
-/**import React, { useState, useEffect } from 'react';
-
-const App = () => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(data => {
-        setData(data);
-        setIsLoading(false);
-      });
-  }, []);
-
-  return (
-    <div>
-      {isLoading ? (
-        <div className="spinner"></div>
-      ) : (
-        <ul>
-          {data.map(item => (
-            <li key={item.id}>{item.title}</li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-};
-
-export default App;
-*/
+export default Spinner;
 /**function Spinner() {
 	return <div></div>;
 }
