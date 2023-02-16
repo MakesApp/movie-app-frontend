@@ -21,6 +21,7 @@ const DetailPage = ({ movie }) => {
 						"https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 					}
 				/>
+				{poster}
 				<S.Title>
 					<strong>title: </strong>
 					{title}
