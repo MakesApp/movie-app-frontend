@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SearchBar from "../../SearchBar/SearchBar";
 import * as S from "./Navbar.styles";
 
 function Navbar() {
@@ -22,10 +23,12 @@ function Navbar() {
 							}}
 						></S.OpenLinksButton>
 					</S.NavbarLinkContainer>
+					<SearchBar />
 				</S.LeftContainer>
 				<S.RightContainer>
 					<S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo>
 				</S.RightContainer>
+				
 			</S.NavbarInnerContainer>
 			{extendNavbar && (
 				<S.NavbarExtendedContainer>
