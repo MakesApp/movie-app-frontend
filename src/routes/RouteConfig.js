@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import DetailPage from "../pages/DetailPage/DetailPage";
+
 const RouteConfig = () => {
 	return (
 		<Routes>
