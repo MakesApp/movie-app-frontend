@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { MOVIES_PER_PAGE } from "./constants";
+import PageLink from "./Pagination.styles";
 const Pagination = ({ totalPage, pageNumber, path }) => {
 	return (
 		<>
@@ -25,7 +25,4 @@ const Pagination = ({ totalPage, pageNumber, path }) => {
 	);
 };
 
-const PageLink = styled(Link)`
-	color: ${(props) => (props.isSelected ? "red" : "blue")}
-`;
 export default Pagination;
