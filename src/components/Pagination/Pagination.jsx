@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MOVIES_PER_PAGE } from "./constants";
-import * as S from './Pagination.styles'
+import * as S from "./Pagination.styles";
 const Pagination = ({ totalPage, pageNumber, path }) => {
 	return (
 		<>

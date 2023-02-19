@@ -3,26 +3,28 @@ import { useGetMovieDetailQuery } from "../../services/api/movieSlice";
 import * as S from "./detailPage.style";
 
 const DetailPage = () => {
-	const params=useParams();
-	const {id}=params;
-	const {data:movieDetail}=useGetMovieDetailQuery(id);
+	const params = useParams();
+	const { id } = params;
+	const { data: movieDetail } = useGetMovieDetailQuery(id);
 
 	const {
-		poster ,
-		title ,
-		year ,
+		poster,
+		title,
+		year,
 		genre,
-		director ,
-		writers ,
+		director,
+		writers,
 		runTime,
 		plot,
 		tagLine,
-		language ,
-	} = movieDetail;
+		language,
+	} = movieDetail || {};
 	return (
 		<>
 			<S.Container>
-				<S.Poster src={poster} />
+				{poster && (
+					<S.Poster src={"https://image.tmdb.org/t/p/w185/" + poster} />
+				)}
 				<S.Title>
 					<strong>title: </strong>
 					{title}
