@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useGetLatestMoviesQuery } from "../../../services/api/movieSlice";
 import "./index.css";
 const SearchBar = () => {
+	
 	const latestMovies = useGetLatestMoviesQuery();
 	const [movieList, setMovieList] = useState(latestMovies.data || []);
 	const [searchValue, setSearchValue] = useState("");
@@ -29,8 +30,8 @@ const SearchBar = () => {
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
 		setMovieList(filterByQuery(searchValue));
-		console.log({ movieList: filterByQuery(searchValue) });
 		setSearchSuggestions([]);
+		console.log({ movieList: filterByQuery(searchValue) });
 	};
 
 	return (
