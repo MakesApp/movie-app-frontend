@@ -2,7 +2,7 @@ import * as S from "./detailPage.style";
 
 const DetailPage = ({ movie }) => {
 	const {
-		poster = "",
+		poster = "img",
 		title = "title",
 		year = 2000,
 		genre = [],
@@ -16,12 +16,7 @@ const DetailPage = ({ movie }) => {
 	return (
 		<>
 			<S.Container>
-				<S.Poster
-					src={
-						"https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-					}
-				/>
-				{poster}
+				<S.Poster src={poster} />
 				<S.Title>
 					<strong>title: </strong>
 					{title}
