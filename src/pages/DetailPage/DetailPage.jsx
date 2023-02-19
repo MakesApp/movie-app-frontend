@@ -1,18 +1,24 @@
+import { useParams } from "react-router-dom";
+import { useGetMovieDetailQuery } from "../../services/api/movieSlice";
 import * as S from "./detailPage.style";
 
-const DetailPage = ({ movie }) => {
+const DetailPage = () => {
+	const params=useParams();
+	const {id}=params;
+	const {data:movieDetail}=useGetMovieDetailQuery(id);
+
 	const {
-		poster = "img",
-		title = "title",
-		year = 2000,
-		genre = [],
-		director = "benny",
-		writers = [],
-		runTime = "",
-		plot = "",
-		tagLine = "asa",
-		language = "nigerian",
-	} = movie;
+		poster ,
+		title ,
+		year ,
+		genre,
+		director ,
+		writers ,
+		runTime,
+		plot,
+		tagLine,
+		language ,
+	} = movieDetail;
 	return (
 		<>
 			<S.Container>
