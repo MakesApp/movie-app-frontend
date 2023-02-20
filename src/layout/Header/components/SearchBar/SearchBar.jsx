@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useGetLatestMoviesQuery } from "../../../services/api/movieSlice";
-import "./index.css";
+import { useState } from "react";
+import { useGetLatestMoviesQuery, useGetMovieBySearchTermQuery } from "../../../../services/api/movieSlice";
+import * as S from "./SearchBar.styles";
 const SearchBar = () => {
-
-	const latestMovies = useGetLatestMoviesQuery();
+	const { data: latestMovies } = useGetLatestMoviesQuery();
 	const [searchValue, setSearchValue] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
+	const {data:searchedMovies} = useGetMovieBySearchTermQuery(searchValue);
 
 	const filterByQuery = (query) => {
 		if (query === "") return [];
-		console.log(latestMovies.data);
-		return latestMovies.data.filter((movie) =>
+		return latestMovies.filter((movie) =>
 			movie.name.toLowerCase().includes(query.toLowerCase())
 		);
 	};
@@ -23,40 +21,41 @@ const SearchBar = () => {
 			if (!value === searchValue) return;
 		}, 150);
 		setSearchSuggestions(filterByQuery(value).slice(0, 3));
-		console.log({ searchSuggestions });
 	};
 
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
 		setSearchSuggestions([]);
-		console.log({ movieList: filterByQuery(searchValue) });
+
 	};
 
 	return (
-		<div className='searchBar'>
-			<form className='searchBar__form'>
-				<input
+		<S.searchBar>
+			<S.SearchBarForm>
+				<S.searchBarInput
 					value={searchValue}
 					type='text'
-					className='searchBar__input'
 					placeholder='search for any movie'
 					onChange={(e) => handleSearchChange(e)}
 				/>
-				<input
-					className='searchBar__submit'
+				<S.searchBarSubmit
 					type='submit'
 					onClick={(e) => handleSearchSubmit(e)}
 					value='Search'
 				/>
-			</form>
-			<div className='searchBar__suggestions'>
-				{searchSuggestions.map((sg, i) => (
-					<Link to="/" key={i} className='searchBar__suggestion'>
+			</S.SearchBarForm>
+			<S.searchBarSuggestions>
+				{searchSuggestions?.map((sg, i) => (
+					<S.searchBarSuggestion
+						to='/'
+						key={i}
+						className='searchBar__suggestion'
+					>
 						{sg.name}
-					</Link>
+					</S.searchBarSuggestion>
 				))}
-			</div>
-		</div>
+			</S.searchBarSuggestions>
+		</S.searchBar>
 	);
 };
 
