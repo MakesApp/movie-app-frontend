@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import DetailPage from "../pages/DetailPage/DetailPage";
+import HomePage from "../pages/Homepage/HomePage";
+import { HOME } from "./constants";
 
 const RouteConfig = () => {
 	return (
 		<Routes>
-			<Route path='/movie/details/:id' element={<DetailPage />} />
+			<Route path={HOME} element={<HomePage />} />
 		</Routes>
 	);
 };
