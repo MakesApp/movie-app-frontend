@@ -23,12 +23,10 @@ function Navbar() {
 							}}
 						></S.OpenLinksButton>
 					</S.NavbarLinkContainer>
-					<SearchBar />
 				</S.LeftContainer>
 				<S.RightContainer>
 					<S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo>
 				</S.RightContainer>
-				
 			</S.NavbarInnerContainer>
 			{extendNavbar && (
 				<S.NavbarExtendedContainer>
