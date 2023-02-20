@@ -1,5 +1,5 @@
 import MovieCard from "./components/MovieCard/MovieCard";
-import * as S from './MovieList.styles';
+import * as S from "./MovieList.styles";
 const MovieList = ({ movies }) => {
 	const renderList = () => {
 		return movies.map((movie) => (

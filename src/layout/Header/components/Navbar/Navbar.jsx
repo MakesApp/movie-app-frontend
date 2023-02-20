@@ -24,7 +24,7 @@ function Navbar() {
 					</S.NavbarLinkContainer>
 				</S.LeftContainer>
 				<S.RightContainer>
-					<S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo>
+					{/* <S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo> */}
 				</S.RightContainer>
 			</S.NavbarInnerContainer>
 			{extendNavbar && (

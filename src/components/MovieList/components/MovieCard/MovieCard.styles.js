@@ -7,13 +7,13 @@ export const PosterContainer = styled.div`
 export const Poster = styled.img`
 	width: 100%;
 	display: block;
-	height: 100%;
+	height: 20rem;
 	object-fit: cover;
 `;
 export const Rating = styled.span`
 	position: absolute;
 	bottom: 10%;
-	right: -10%;
+	right: -6%;
 	background-color: var(--primary-color);
 	border-radius: 50%;
 	height: 35px;
@@ -28,12 +28,16 @@ export const TitleContainer = styled.div`
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
+	flex-direction: column;
 `;
 export const Title = styled.h2`
 	font-size: 14px;
 	color: var(--background-color);
+	padding-top: 5%;
 `;
 export const Year = styled.span`
 	font-size: 14px;
 	color: var(--background-color);
+	padding-top: 3%;
+	color: grey;
 `;
