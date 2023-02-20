@@ -5,7 +5,7 @@ import { GET_LATEST_MOVIES, GET_MOVIE_BY_SEARCH_TERM } from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
 export const moviesApi = createApi({
 	reducerPath: "moviesApi",
-	baseQuery: fetchBaseQuery({ baseUrl: `${"http://localhost:8080/"}` }),
+	baseQuery: fetchBaseQuery({ baseUrl: `${"http://localhost:5000/"}` }),
 	tagTypes: ["Moviesapi"],
 
 	endpoints: (builder) => ({

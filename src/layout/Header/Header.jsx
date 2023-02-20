@@ -5,7 +5,7 @@ const Header = () => {
 	return (
 		<div>
 			<Navbar />
-			<SearchBar/>
+			<SearchBar />
 		</div>
 	);
 };

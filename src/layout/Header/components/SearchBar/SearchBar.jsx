@@ -1,11 +1,23 @@
-import { useState } from "react";
-import { useGetLatestMoviesQuery, useGetMovieBySearchTermQuery } from "../../../../services/api/movieSlice";
+import { useEffect, useState } from "react";
+import {
+	useGetLatestMoviesQuery,
+	useGetMovieBySearchTermQuery,
+} from "../../../../services/api/movieSlice";
 import * as S from "./SearchBar.styles";
 const SearchBar = () => {
 	const { data: latestMovies } = useGetLatestMoviesQuery();
 	const [searchValue, setSearchValue] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
-	const {data:searchedMovies} = useGetMovieBySearchTermQuery(searchValue);
+	const [fetch, setfetch] = useState(false);
+	const { data: searchedMovies } = useGetMovieBySearchTermQuery(searchValue, {
+		skip: !fetch,
+	});
+	useEffect(()=>{
+        if(searchedMovies){
+			setSearchSuggestions(searchedMovies.movies);
+        setfetch(false);
+		}
+    },[searchedMovies]);
 
 	const filterByQuery = (query) => {
 		if (query === "") return [];
@@ -26,7 +38,7 @@ const SearchBar = () => {
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
 		setSearchSuggestions([]);
-
+		setfetch(true);
 	};
 
 	return (
