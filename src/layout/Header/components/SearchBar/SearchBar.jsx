@@ -12,6 +12,7 @@ const SearchBar = () => {
 	const { data: searchedMovies } = useGetMovieBySearchTermQuery(searchValue, {
 		skip: !fetch,
 	});
+	console.log(searchedMovies);
 	useEffect(()=>{
         if(searchedMovies){
 			setSearchSuggestions(searchedMovies.movies);
@@ -63,7 +64,10 @@ const SearchBar = () => {
 						key={i}
 						className='searchBar__suggestion'
 					>
-						{sg.name}
+						<>{sg.name}</>
+						<>{sg.year}</>
+						{sg.rating}
+						<S.movieImage src={sg.poster}></S.movieImage>
 					</S.searchBarSuggestion>
 				))}
 			</S.searchBarSuggestions>

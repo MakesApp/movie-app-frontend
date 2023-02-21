@@ -48,4 +48,14 @@ export const searchBarSuggestion = styled(Link)`
 	text-align: center;
 	text-decoration: none;
 	color: black;
+	align-items: center
+	justify-content: center;
+
+`;
+export const movieImage=styled.img`
+width:1.8vw;
+hight:1vh;
+align-items: center;
+justify-content: center;
+
 `;
