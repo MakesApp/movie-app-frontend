@@ -1,4 +1,3 @@
-import React from "react";
 import tmdbLogo from "../../assets/images/tmdb.svg";
 import * as S from "./Footer.styles";
 
