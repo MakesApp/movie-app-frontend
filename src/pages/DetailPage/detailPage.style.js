@@ -67,28 +67,3 @@ export const Title = styled.h1`
 export const InfoP = styled.p`
 	font-size: 18px;
 `;
-
-//! UNUSED
-// export const Genre = styled.p`
-// 	font-size: 24px;
-// `;
-
-// export const Year = styled.p`
-// 	font-size: 24px;
-// `;
-
-// export const Language = styled.p`
-// 	font-size: 24px;
-// `;
-// export const Writers = styled.p`
-// 	font-size: 24px;
-// `;
-// export const Plot = styled.p`
-// 	font-size: 24px;
-// `;
-// export const RunTime = styled.p`
-// 	font-size: 24px;
-// `;
-// export const TagLine = styled.p`
-// 	font-size: 24px;
-// `;

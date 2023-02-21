@@ -21,11 +21,7 @@ const DetailPage = () => {
 	} = movieDetail || {};
 
 	let displayGenre = genre;
-	if (Array.isArray(genre)) {
-		{
-			displayGenre = genre.join(" , ");
-		}
-	}
+	if (Array.isArray(genre)) displayGenre = genre.join(" , ");
 	return (
 		<>
 			<S.Container>
