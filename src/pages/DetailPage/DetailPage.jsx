@@ -9,58 +9,71 @@ const DetailPage = () => {
 
 	const {
 		poster,
+		director,
+		genre,
 		title,
 		year,
-		genre,
-		director,
 		writers,
 		runTime,
 		plot,
 		tagLine,
 		language,
 	} = movieDetail || {};
+
+	let displayGenre = genre;
+	if (Array.isArray(genre)) {
+		{
+			displayGenre = genre.join(" , ");
+		}
+	}
 	return (
 		<>
 			<S.Container>
-				{poster && (
-					<S.Poster src={"https://image.tmdb.org/t/p/w185/" + poster} />
-				)}
-				<S.Title>
-					<strong>title: </strong>
-					{title}
-				</S.Title>
-				<S.Genre>
-					<strong>Genre: </strong>
-					{genre}
-				</S.Genre>
-				<S.Year>
-					<strong>year: </strong>
-					{year}
-				</S.Year>
-				<S.Director>
-					<strong>Director: </strong>
-					{director}
-				</S.Director>
-				<S.Writers>
-					<strong>Writers: </strong>
-					{writers}
-				</S.Writers>
-				<S.RunTime>
-					<strong>Runtime: </strong>
-					{runTime} minutes
-				</S.RunTime>
-				<S.Plot>
-					<strong>Plot: </strong>
-					{plot}
-				</S.Plot>
-				<S.TagLine>
-					<strong>Tagline: </strong>
-					{tagLine}
-				</S.TagLine>
-				<S.Language>
-					<strong>Language: </strong>
-					{language}
-				</S.Language>
+				<S.FlexRow>
+					<div className='leftSide'>
+						<S.Title>
+							<strong>Title: </strong>
+							{title}
+						</S.Title>
+						<S.InfoP>
+							<strong>Genre: </strong>
+							{displayGenre ? displayGenre : "N/A"}
+						</S.InfoP>
+						<S.InfoP>
+							<strong>Year: </strong>
+							{year ? year : "N/A"}
+						</S.InfoP>
+						<S.InfoP>
+							<strong>Language: </strong>
+							{language ? language : "N/A"}
+						</S.InfoP>
+						<S.InfoP>
+							<strong>Director: </strong>
+							{director ? director : "N/A"}
+						</S.InfoP>
+						<S.InfoP>
+							<strong>Writers: </strong>
+							{writers ? writers : "N/A"}
+						</S.InfoP>
+						<S.InfoP>
+							<strong>Plot: </strong>
+							{plot ? plot : "N/A"}
+						</S.InfoP>
+						<S.InfoP>
+							<strong>Runtime: </strong>
+							{runTime ? runTime : "N/A"}
+						</S.InfoP>
+						<S.InfoP>
+							<strong>Tagline: </strong>
+							{tagLine ? tagLine : "N/A"}
+						</S.InfoP>
+					</div>
+					<div className='rightSide'>
+						{poster && (
+							<S.Poster src={"https://image.tmdb.org/t/p/w185/" + poster} />
+						)}
+					</div>
+				</S.FlexRow>
 			</S.Container>
 		</>
 	);
