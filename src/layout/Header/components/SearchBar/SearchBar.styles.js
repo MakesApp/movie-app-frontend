@@ -44,13 +44,13 @@ export const searchBarSuggestion = styled(Link)`
 	border: 2px solid rgb(0, 0, 56);
 	border-radius: 3px;
 	width: 20rem;
-	height: 1.8rem;
+	height:2rem;
 	text-align: center;
 	text-decoration: none;
 	color: black;
 	align-items: center
 	justify-content: center;
-
+	font-size:12px;
 `;
 export const movieImage=styled.img`
 width:1.8vw;
