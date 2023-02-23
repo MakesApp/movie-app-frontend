@@ -22,7 +22,7 @@ console.log(filteredMovies);
   return (
     <>
     <Pagination
-    totalPage={mergedmovies.length}
+    totalPage={filteredMovies.length}
     pageNumber={page=page??"1"}
 path={`/search/${searchQuery}/page`}
     />
