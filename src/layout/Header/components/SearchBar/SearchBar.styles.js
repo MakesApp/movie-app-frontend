@@ -48,8 +48,12 @@ export const searchBarSuggestion = styled(Link)`
 	text-align: center;
 	text-decoration: none;
 	color: black;
-	align-items: center
-	justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-right: 0.2rem;
+	align-items: center;
+	z-index: 2;
 	font-size:12px;
 `;
 export const movieImage=styled.img`
@@ -58,4 +62,9 @@ hight:1vh;
 align-items: center;
 justify-content: center;
 
+`;
+
+export const movieName = styled.b`
+font-weight: 500;
+font-size: 14px;
 `;
