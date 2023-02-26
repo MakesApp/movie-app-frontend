@@ -19,10 +19,8 @@ const SearchBar = () => {
 	const { data: searchedMovies } = useGetMovieBySearchTermQuery(searchValue, {
 		skip: !fetch,
 	});
-	console.log(searchedMovies);
 	useEffect(()=>{
         if(searchedMovies){
-			// setSearchSuggestions(searchedMovies.movies);
         setfetch(false);
 		}
     },[searchedMovies]);
@@ -44,45 +42,45 @@ const SearchBar = () => {
 	};
 
 	const handleSearchSubmit = (e) => {
-		navigate(`search/${searchValue}/page/1`);
 		e.preventDefault();
 		setSearchSuggestions([]);
 		setfetch(true);
-		
+		navigate(`search/${searchValue}/page/1`);
+
 
 	};
 
 	return (
-		<S.searchBar>
+		<S.SearchBar>
 			<S.SearchBarForm>
-				<S.searchBarInput
+				<S.SearchBarInput
 					value={searchValue}
 					type='text'
 					placeholder='search for any movie'
 					onChange={(e) => handleSearchChange(e)}
 				/>
-				<S.searchBarSubmit
+				<S.SearchBarSubmit
 					type='submit'
 					onClick={(e) => handleSearchSubmit(e)}
 					value='Search'
 				/>
 			</S.SearchBarForm>
-			<S.searchBarSuggestions>
+			<S.SearchBarSuggestions>
 				{searchSuggestions?.map((sg, i) => (
-					<S.searchBarSuggestion
+					<S.SearchBarSuggestion
 						to={`/movies/details/${sg.id}`}
 						onClick={() => setSearchSuggestions([])}
 						key={i}
 						className='searchBar__suggestion'
 					>
-						<S.movieImage src={sg.poster}></S.movieImage>
-						<S.movieName>{sg.name}</S.movieName>
+						<S.MovieImage src={sg.poster}></S.MovieImage>
+						<S.MovieName>{sg.name}</S.MovieName>
 						<p>{sg.year}</p>
 						
-					</S.searchBarSuggestion>
+					</S.SearchBarSuggestion>
 				))}
-			</S.searchBarSuggestions>
-		</S.searchBar>
+			</S.SearchBarSuggestions>
+		</S.SearchBar>
 	);
 };
 

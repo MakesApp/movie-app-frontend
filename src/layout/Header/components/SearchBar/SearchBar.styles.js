@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-export const searchBar = styled.div`
+export const SearchBar = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 0.2rem;
@@ -12,7 +12,7 @@ export const SearchBarForm = styled.form`
 	gap: 0.5rem;
 	align-items: center;
 `;
-export const searchBarInput = styled.input`
+export const SearchBarInput = styled.input`
 	width: 20rem;
 	height: 1.5rem;
 	font-size: 15px;
@@ -21,7 +21,7 @@ export const searchBarInput = styled.input`
 	border: none;
 	padding: 0.3rem;
 `;
-export const searchBarSubmit = styled.input`
+export const SearchBarSubmit = styled.input`
 	all: unset;
 	background-color: white;
 	color: blue;
@@ -34,12 +34,12 @@ export const searchBarSubmit = styled.input`
 	font-size: 0.9rem;
 	transition: all 0.15s ease;
 `;
-export const searchBarSuggestions = styled.div`
+export const SearchBarSuggestions = styled.div`
 	display: flex;
 	gap: 0.2rem;
 	flex-direction: column;
 `;
-export const searchBarSuggestion = styled(Link)`
+export const SearchBarSuggestion = styled(Link)`
 	background-color: white;
 	border: 2px solid rgb(0, 0, 56);
 	border-radius: 3px;
@@ -56,7 +56,7 @@ export const searchBarSuggestion = styled(Link)`
 	z-index: 2;
 	font-size:12px;
 `;
-export const movieImage=styled.img`
+export const MovieImage=styled.img`
 width:1.8vw;
 hight:1vh;
 align-items: center;
@@ -64,7 +64,7 @@ justify-content: center;
 
 `;
 
-export const movieName = styled.b`
+export const MovieName = styled.b`
 font-weight: 500;
 font-size: 14px;
 `;

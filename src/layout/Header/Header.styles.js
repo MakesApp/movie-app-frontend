@@ -1,4 +1,4 @@
 import styled from "styled-components/macro";
-export const HeaderDiv=styled.div`
+export const Container=styled.div`
 display:flex;
 `;

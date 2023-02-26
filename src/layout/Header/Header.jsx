@@ -1,12 +1,12 @@
 import Navbar from "./components/Navbar/Navbar";
 import SearchBar from "./components/SearchBar/SearchBar";
-import { HeaderDiv } from "./styles.header";
+import * as S from "./Header.styles";
 const Header = () => {
 	return (
-		<HeaderDiv>
+		<S.Container>
 			<Navbar />
 			<SearchBar />
-		</HeaderDiv>
+		</S.Container>
 	);
 };
 
