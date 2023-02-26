@@ -25,7 +25,7 @@ function Navbar() {
 				</S.LeftContainer>
 				<S.RightContainer>
 					<S.NavbarLink to='/LoginPage'>Login</S.NavbarLink>		
-					<S.NavbarLink to='/SignupPage'>Sign Up</S.NavbarLink>
+					<S.NavbarLink to='/SignupPage'>SignUp</S.NavbarLink> 
 					{/* <S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo> */}
 				</S.RightContainer>
 			</S.NavbarInnerContainer>
