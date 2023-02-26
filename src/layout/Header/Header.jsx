@@ -1,10 +1,12 @@
 import Navbar from "./components/Navbar/Navbar";
-
+import SearchBar from "./components/SearchBar/SearchBar";
+import * as S from "./Header.styles";
 const Header = () => {
 	return (
-		<div>
+		<S.Container>
 			<Navbar />
-		</div>
+			<SearchBar />
+		</S.Container>
 	);
 };
 
