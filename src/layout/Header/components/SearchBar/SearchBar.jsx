@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Detail, Search } from "../../../../routes/constants";
+import { useNavigate } from "react-router-dom";
 import {
 	useGetLatestMoviesQuery,
 	useGetMovieBySearchTermQuery,
@@ -8,22 +7,21 @@ import {
 } from "../../../../services/api/movieSlice";
 import * as S from "./SearchBar.styles";
 const SearchBar = () => {
-	const navigate=useNavigate();
+	const navigate = useNavigate();
 	const { data: latestMovies } = useGetLatestMoviesQuery();
-	const {data:topMovies}=useGetTopMoviesQuery();
-	const mergedmovies=latestMovies?.concat(topMovies)||[];
-	console.log( useGetLatestMoviesQuery());
+	const { data: topMovies } = useGetTopMoviesQuery();
+	const mergedmovies = latestMovies?.concat(topMovies) || [];
 	const [searchValue, setSearchValue] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
 	const [fetch, setfetch] = useState(false);
 	const { data: searchedMovies } = useGetMovieBySearchTermQuery(searchValue, {
 		skip: !fetch,
 	});
-	useEffect(()=>{
-        if(searchedMovies){
-        setfetch(false);
+	useEffect(() => {
+		if (searchedMovies) {
+			setfetch(false);
 		}
-    },[searchedMovies]);
+	}, [searchedMovies]);
 
 	const filterByQuery = (query) => {
 		if (query === "") return [];
@@ -46,8 +44,6 @@ const SearchBar = () => {
 		setSearchSuggestions([]);
 		setfetch(true);
 		navigate(`search/${searchValue}/page/1`);
-
-
 	};
 
 	return (
@@ -76,7 +72,6 @@ const SearchBar = () => {
 						<S.MovieImage src={sg.poster}></S.MovieImage>
 						<S.MovieName>{sg.name}</S.MovieName>
 						<p>{sg.year}</p>
-						
 					</S.SearchBarSuggestion>
 				))}
 			</S.SearchBarSuggestions>
