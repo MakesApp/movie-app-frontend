@@ -1,19 +1,19 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import * as S from "./LoginPage.styles";
 const LoginPage = () => {
-	const [email, setEmail] = useState("");
+	const [name, setName] = useState("");
 	const [password, setPassword] = useState("");
-	const [emailError, setEmailError] = useState("");
+	const [nameError, setNameError] = useState("");
 	const [passwordError, setPasswordError] = useState("");
 
-	const handleEmailChange = (e) => {
-		setEmail(e.target.value);
+	const handleNameChange = (e) => {
+		setName(e.target.value);
 
-		const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		if (!emailPattern.test(e.target.value)) {
-			setEmailError("Invalid email address");
+		if (e.target.value.trim() === "") {
+			setNameError("Username is required");
 		} else {
-			setEmailError("");
+			setNameError("");
 		}
 	};
 
@@ -35,22 +35,21 @@ const LoginPage = () => {
 		e.preventDefault();
 	};
 
-	const handleSignIn = () => {};
+	const handleSignIn = async () => {};
 
 	return (
 		<S.LoginContainer>
 			<S.LoginForm onSubmit={handleSubmit}>
 				<S.LoginTitle>Login Page</S.LoginTitle>
-				<S.LoginLabel htmlFor='email'>Email:</S.LoginLabel>
+				<S.LoginLabel htmlFor='email'>Name:</S.LoginLabel>
 				<S.LoginInput
-					type='email'
-					id='email'
-					name='email'
-					value={email}
-					onChange={handleEmailChange}
+					type='name'
+					id='name'
+					name='name'
+					value={name}
+					onChange={handleNameChange}
 					required
 				/>
-				{/* {emailError && <S.LoginErrorMessage>{emailError}</S.LoginErrorMessage>} */}
 				<S.LoginLabel htmlFor='password'>Password:</S.LoginLabel>
 				<S.LoginInput
 					type='password'
@@ -60,15 +59,15 @@ const LoginPage = () => {
 					onChange={handlePasswordChange}
 					required
 				/>
-				{/* {passwordError && (
-					<S.LoginErrorMessage>{passwordError}</S.LoginErrorMessage>
-				)} */}
 				<S.LoginButton type='submit'>Login</S.LoginButton>
 
 				<S.SignInButton onClick={handleSignIn}>
 					<S.GoogleIcon src='https://cdn.iconscout.com/icon/free/png-256/google-470-675827.png' />
 					Sign in with Google
 				</S.SignInButton>
+				<S.ParaSign>
+					Dont have an account? <Link to='/Signup'>Sign up here</Link>.
+				</S.ParaSign>
 			</S.LoginForm>
 		</S.LoginContainer>
 	);

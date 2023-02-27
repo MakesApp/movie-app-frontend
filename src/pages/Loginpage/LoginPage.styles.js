@@ -85,3 +85,7 @@ export const LoginErrorMessage = styled.div`
 	font-size: 0.8rem;
 	margin-bottom: 1rem;
 `;
+
+export const ParaSign = styled.p`
+	margin-top: 30px;
+`;
