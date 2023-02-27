@@ -12,7 +12,7 @@ const SearchBar = () => {
 	const { data: latestMovies } = useGetLatestMoviesQuery();
 	const {data:topMovies}=useGetTopMoviesQuery();
 	const mergedmovies=latestMovies?.concat(topMovies)||[];
-	console.log( useGetLatestMoviesQuery());
+	// console.log( useGetLatestMoviesQuery());
 	const [searchValue, setSearchValue] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
 	const [fetch, setfetch] = useState(false);

@@ -16,6 +16,7 @@ function Navbar() {
 						</S.NavbarLink>
 						<S.NavbarLink to='/advanced-search'> Advanced Search</S.NavbarLink>
 						<S.NavbarLink to='/popular-actors'> Popular Actors</S.NavbarLink>
+						<S.NavbarLink to='/watchlater'> Watch Later</S.NavbarLink>
 						<S.OpenLinksButton
 							onClick={() => {
 								setExtendNavbar((curr) => !curr);

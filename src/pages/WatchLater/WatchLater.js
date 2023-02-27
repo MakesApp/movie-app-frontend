@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import MovieList from "../../components/MovieList/MovieList";
 import { addMovie, removeMovie } from "../../services/redux/userSlice";
 
 const WatchLater = ({ id, title, poster }) => {
 	const dispatch = useDispatch();
-	const watchLater = useSelector((state) => state.watchLater);
-
+	const [hideButton, setHideButton] = useState(true);
+	const watchLater = useSelector((state) => state.userSlice.watchLater);
+	console.log(watchLater);
 	const handleWatchLater = () => {
 		const movie = { id, title, poster };
 		if (watchLater.some((m) => m.id === movie.id)) {
@@ -15,15 +17,12 @@ const WatchLater = ({ id, title, poster }) => {
 		}
 	};
 
-	const isWatchedLater = watchLater.some((m) => m.id === id);
+
 
 	return (
 		<div>
-			<h2>{title}</h2>
-			<img src={poster} alt={title} />
-			<button onClick={handleWatchLater}>
-				{isWatchedLater ? "Remove from watch later" : "Add to watch later"}
-			</button>
+			{<h2>Watch Later List</h2>}
+			<MovieList movies={watchLater} hideButton={hideButton} ></MovieList>
 		</div>
 	);
 };

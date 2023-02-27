@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { clearList, removeMovie } from "../../../../services/redux/userSlice";
-
+import MovieList from "../../components/MovieList/MovieList";
 
 function WatchLaterList() {
-	const watchLaterList = useSelector((state) => state.watchLater);
+	const watchLaterList = useSelector((state) => state.userSlice.watchLater);
 	const dispatch = useDispatch();
 
 	const handleRemoveFromWatchLater = (movie) => {
@@ -20,6 +20,7 @@ function WatchLaterList() {
 			{watchLaterList.length > 0 ? (
 				<>
 					<button onClick={handleClearList}>Clear List</button>
+					
 					<ul>
 						{watchLaterList.map((movie) => (
 							<li key={movie.id}>
