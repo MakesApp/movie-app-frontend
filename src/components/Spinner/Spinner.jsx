@@ -1,22 +1,11 @@
 import React from 'react';
-
-import styled, { keyframes } from 'styled-components';
-
-const spinAnimation = keyframes`
-  to { transform: rotate(360deg); }
-`;
-
+import  * as S from './Spinner.styles';
 
 
 const Spinner = () => (
-  <SpinnerWrapper>
-    <SpinnerInner />
-  </SpinnerWrapper>
+  <S.SpinnerWrapper>
+    <S.SpinnerInner />
+  </S.SpinnerWrapper>
 );
 
 export default Spinner;
-/**function Spinner() {
-	return <div></div>;
-}
-
-export default Spinner; */
