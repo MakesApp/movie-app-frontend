@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 
 
-const Favorites = ({ isFavorite, onClick }) => {
+const HeartButton = () => {
+  const [active, setActive] = useState(false);
+
+  const handleClick = () => {
+    setActive(!active);
+  };
+
   return (
-    <FavoriteButton isFavorite={isFavorite} onClick={onClick}>
-      {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
-    </FavoriteButton>
+    <HeartIcon active={active} onClick={handleClick} aria-label="Favorite">
+      <span className="visually-hidden">Favorite</span>
+    </HeartIcon>
   );
 };
 
-export default Favorites;
+export default HeartButton;
