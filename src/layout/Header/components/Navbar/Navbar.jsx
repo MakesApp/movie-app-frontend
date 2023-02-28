@@ -14,7 +14,7 @@ function Navbar() {
 							{" "}
 							AI Generated Movies
 						</S.NavbarLink>
-						<S.NavbarLink to='/advanced-search'> Advanced Search</S.NavbarLink>
+						<S.NavbarLink to='/AdvancedSearch'> Advanced Search</S.NavbarLink>
 						<S.NavbarLink to='/popular-actors'> Popular Actors</S.NavbarLink>
 						<S.OpenLinksButton
 							onClick={() => {
