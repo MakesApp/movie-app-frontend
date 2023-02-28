@@ -42,8 +42,8 @@ export const NavbarLinkContainer = styled.div`
 
 export const NavbarLink = styled(Link)`
 	color: #efcca2;
-	font-size: x-large;
-	font-family: Arial, Helvetica, sans-serif;
+	/* font-size: x-large; */
+	font-size: 1.3rem;
 	text-decoration: none;
 	margin: 10px;
 	@media (max-width: 700px) {
