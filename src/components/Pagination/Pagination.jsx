@@ -6,8 +6,8 @@ const Pagination = ({ totalPage, pageNumber, path }) => {
 		<S.Container>
 			<Link to={`${path}/${parseInt(pageNumber) - 1}`}>
 				<S.Icon
-					disabled={parseInt(pageNumber) - 1 <= 0}
 					className='fa-solid fa-angles-left'
+					hidden={parseInt(pageNumber) - 1 <= 0}
 				></S.Icon>
 				{/* <button disabled={parseInt(pageNumber) - 1 <= 0}>Previous</button> */}
 			</Link>
@@ -22,8 +22,8 @@ const Pagination = ({ totalPage, pageNumber, path }) => {
 			))}
 			<Link to={`${path}/${parseInt(pageNumber) + 1}`}>
 				<S.Icon
-					disabled={parseInt(pageNumber) + 1 > Math.ceil(totalPage / 10)}
 					className='fa-solid fa-angles-right'
+					hidden={parseInt(pageNumber) + 1 > Math.ceil(totalPage / 10)}
 				></S.Icon>
 				{/* <button disabled={parseInt(pageNumber) + 1 > Math.ceil(totalPage / 10)}>
 					Next

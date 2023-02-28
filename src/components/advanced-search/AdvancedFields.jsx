@@ -1,4 +1,5 @@
 import React from "react";
+import * as S from "./AdvancedFields.styled";
 
 export default function AdvancedFields({ topMovies }) {
 	const years = topMovies
@@ -13,8 +14,8 @@ export default function AdvancedFields({ topMovies }) {
 	// 		if (!genreArr.includes(movie.genre)) genreArr.push(movie.genre);
 	// 	})
 	return (
-		<form>
-			<select name='' id=''>
+		<S.Container>
+			<S.Select name='' id=''>
 				{years.map((year, index) => {
 					return (
 						<option key={`movie${index}`} value={year}>
@@ -22,8 +23,8 @@ export default function AdvancedFields({ topMovies }) {
 						</option>
 					);
 				})}
-			</select>
-			<select name='' id=''>
+			</S.Select>
+			<S.Select name='' id=''>
 				{years.map((year, index) => {
 					return (
 						<option key={`movie${index}`} value={year}>
@@ -31,7 +32,7 @@ export default function AdvancedFields({ topMovies }) {
 						</option>
 					);
 				})}
-			</select>
+			</S.Select>
 			{/* <select name='' id=''>
 					{genreArr &&
 						genreArr.map((genre, index) => {
@@ -42,7 +43,6 @@ export default function AdvancedFields({ topMovies }) {
 							);
 						})}
 				</select> */}
-			<select name='' id=''></select>
-		</form>
+		</S.Container>
 	);
 }

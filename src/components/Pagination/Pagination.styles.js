@@ -7,11 +7,13 @@ export const Container = styled.div`
 	margin: 1% auto;
 `;
 export const Icon = styled.i`
-	color: white;
+	color: whitesmoke;
+	font-size: 1.3rem;
 `;
 
 export const PageLink = styled(Link)`
-	color: ${(props) => (props.isSelected ? "gray" : "white")};
+	color: ${(props) => (props.isSelected ? "gold" : "whitesmoke")};
 	padding: 0 10%;
 	text-decoration: none;
+	font-size: 1.3rem;
 `;

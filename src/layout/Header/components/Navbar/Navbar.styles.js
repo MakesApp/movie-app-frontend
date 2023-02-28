@@ -5,10 +5,8 @@ export const NavbarContainer = styled.nav`
 	width: 100%;
 	padding: 0 5%;
 	height: ${(props) => (props.extendNavbar ? "100vh" : "80px")};
-	/* background-color: #0a2647; */
 	background-color: #181823;
 	display: flex;
-	/* flex-direction: column; */
 	align-items: center;
 	justify-content: space-around;
 	@media (min-width: 700px) {
@@ -42,10 +40,13 @@ export const NavbarLinkContainer = styled.div`
 
 export const NavbarLink = styled(Link)`
 	color: #efcca2;
-	/* font-size: x-large; */
+	font-size: x-large;
 	font-size: 1.3rem;
 	text-decoration: none;
-	margin: 10px;
+	margin: 0 10px;
+	&:hover {
+		color: white;
+	}
 	@media (max-width: 700px) {
 		display: none;
 	}

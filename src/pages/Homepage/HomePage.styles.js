@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 export const ButtonsContainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
-	padding: 3rem 0;
+	padding: 2rem 0;
 `;
 
 export const Button = styled.button`
@@ -30,5 +30,5 @@ export const HeadersContainer = styled.div`
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding-top: 40px;
+	padding-top: 20px;
 `;

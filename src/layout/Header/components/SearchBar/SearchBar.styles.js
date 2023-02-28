@@ -39,6 +39,10 @@ export const SearchBarSubmit = styled.input`
 	font-weight: 500;
 	/* font-size: 0.9rem; */
 	transition: all 0.15s ease;
+	&:hover {
+		background-color: white;
+		color: black;
+	}
 `;
 export const SearchBarSuggestions = styled.div`
 	display: flex;
@@ -66,6 +70,9 @@ export const SearchBarSuggestion = styled(Link)`
 	align-items: center;
 	z-index: 2;
 	font-size: 12px;
+	&:hover {
+		background-color: black;
+	}
 `;
 export const MovieImage = styled.img`
 	width: 1.8vw;

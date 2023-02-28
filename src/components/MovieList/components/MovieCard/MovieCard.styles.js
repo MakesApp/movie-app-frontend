@@ -20,6 +20,11 @@ export const Poster = styled.img`
 	box-shadow: rgba(20, 64, 67, 0.3) 0px 1px 2px 0px,
 		rgba(20, 64, 67, 0.15) 0px 1px 3px 1px;
 	margin: auto;
+	cursor: pointer;
+	&:hover {
+		border: 2px gold solid;
+		box-shadow: gold 0px 1px 2px 0px, gold 0px 1px 3px 1px;
+	}
 `;
 export const Rating = styled.span`
 	position: absolute;
