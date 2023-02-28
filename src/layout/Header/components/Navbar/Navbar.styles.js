@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 
 export const NavbarContainer = styled.nav`
 	width: 100%;
+	padding: 0 5%;
 	height: ${(props) => (props.extendNavbar ? "100vh" : "80px")};
-	background-color: #0a2647;
+	/* background-color: #0a2647; */
+	background-color: #181823;
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
+	align-items: center;
+	justify-content: space-around;
 	@media (min-width: 700px) {
 		height: 80px;
 	}

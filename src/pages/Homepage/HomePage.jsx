@@ -16,7 +16,8 @@ const HomePage = () => {
 	return (
 		<>
 			<S.HeadersContainer>
-				<S.h1>Welcome to LaLa Land</S.h1>
+				<img style={{ width: "40%" }} src='/img/logo.png' alt='' />
+				{/* <S.h1>Welcome to LaLa Land</S.h1> */}
 				<br />
 			</S.HeadersContainer>
 

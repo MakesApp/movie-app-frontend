@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as S from "./Navbar.styles";
-
+import SearchBar from "../SearchBar/SearchBar";
 function Navbar() {
 	const [extendNavbar, setExtendNavbar] = useState(false);
 
@@ -10,10 +10,6 @@ function Navbar() {
 				<S.LeftContainer>
 					<S.NavbarLinkContainer>
 						<S.NavbarLink to='/'> Home</S.NavbarLink>
-						<S.NavbarLink to='/ai-generated-movies'>
-							{" "}
-							AI Generated Movies
-						</S.NavbarLink>
 						<S.NavbarLink to='/AdvancedSearch'> Advanced Search</S.NavbarLink>
 						<S.NavbarLink to='/popular-actors'> Popular Actors</S.NavbarLink>
 						<S.OpenLinksButton
@@ -23,17 +19,13 @@ function Navbar() {
 						></S.OpenLinksButton>
 					</S.NavbarLinkContainer>
 				</S.LeftContainer>
-				<S.RightContainer>
-					{/* <S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo> */}
-				</S.RightContainer>
+				{/* <S.RightContainer>
+					<S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo>
+				</S.RightContainer> */}
 			</S.NavbarInnerContainer>
 			{extendNavbar && (
 				<S.NavbarExtendedContainer>
 					<S.NavbarLinkExtended to='/'> Home</S.NavbarLinkExtended>
-					<S.NavbarLinkExtended to='/ai-generated-movies'>
-						{" "}
-						AI Generated Movies
-					</S.NavbarLinkExtended>
 					<S.NavbarLinkExtended to='/advanced-search'>
 						{" "}
 						Advanced Search
@@ -43,6 +35,7 @@ function Navbar() {
 					</S.NavbarLinkExtended>
 				</S.NavbarExtendedContainer>
 			)}
+			<SearchBar></SearchBar>
 		</S.NavbarContainer>
 	);
 }

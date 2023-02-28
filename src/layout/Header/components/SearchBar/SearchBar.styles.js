@@ -2,10 +2,11 @@ import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 export const SearchBar = styled.div`
 	display: flex;
+	position: relative;
 	flex-direction: column;
 	gap: 0.2rem;
 	overflow: visible;
-	height: 3rem;
+	/* height: 3rem; */
 `;
 export const SearchBarForm = styled.form`
 	display: flex;
@@ -36,15 +37,19 @@ export const SearchBarSubmit = styled.input`
 `;
 export const SearchBarSuggestions = styled.div`
 	display: flex;
-	gap: 0.2rem;
+	/* gap: 0.5%; */
 	flex-direction: column;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 2;
 `;
 export const SearchBarSuggestion = styled(Link)`
 	background-color: white;
 	border: 2px solid rgb(0, 0, 56);
 	border-radius: 3px;
 	width: 20rem;
-	height:2rem;
+	height: 2rem;
 	text-align: center;
 	text-decoration: none;
 	color: black;
@@ -54,17 +59,19 @@ export const SearchBarSuggestion = styled(Link)`
 	padding-right: 0.2rem;
 	align-items: center;
 	z-index: 2;
-	font-size:12px;
+	font-size: 12px;
 `;
-export const MovieImage=styled.img`
-width:1.8vw;
-hight:1vh;
-align-items: center;
-justify-content: center;
-
+export const MovieImage = styled.img`
+	width: 1.8vw;
+	overflow: hidden;
+	height: 80%;
+	border-radius: 20%;
+	align-items: center;
+	justify-content: center;
+	margin-left: 2%;
 `;
 
 export const MovieName = styled.b`
-font-weight: 500;
-font-size: 14px;
+	font-weight: 500;
+	font-size: 14px;
 `;
