@@ -16,6 +16,7 @@ import styled from "styled-components/macro";
 export const Container = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	/* grid-template-columns: repeat(5, 200px); */
 	/* grid-gap: 25px; */
 

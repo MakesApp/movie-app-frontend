@@ -1,6 +1,9 @@
 import styled from "styled-components/macro";
 
 export const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width: 300px;
 `;
 export const PosterContainer = styled.div`
