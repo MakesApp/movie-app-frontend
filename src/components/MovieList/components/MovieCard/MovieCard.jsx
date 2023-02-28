@@ -1,13 +1,16 @@
 import { useDispatch } from "react-redux";
-import { addMovie } from "../../../../services/redux/userSlice";
+import { addMovie, removeMovie } from "../../../../services/redux/userSlice";
 import * as S from "./MovieCard.styles";
 
 const MovieCard = ({ movie, hideButton }) => {
-			const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-	const handleAddToWatchLater = ()=>{
+	const handleAddToWatchLater = () => {
 		dispatch(addMovie(movie));
+	};
 
+	const handleRemoveMovie = (movie) => {
+		dispatch(removeMovie(movie));
 	};
 
 	return (
@@ -15,9 +18,14 @@ const MovieCard = ({ movie, hideButton }) => {
 			<S.PosterContainer>
 				<S.Poster src={movie?.poster} alt='movie image' />
 				{!hideButton && <S.Rating>{movie?.rating || "7.5"}</S.Rating>}
-				{!hideButton && <S.AddButton onClick={() => handleAddToWatchLater()}>
-					+
-				</S.AddButton>}
+				{!hideButton && (
+					<S.AddButton onClick={() => handleAddToWatchLater()}>+</S.AddButton>
+				)}
+				{hideButton && (
+					<S.RemoveButton onClick={() => handleRemoveMovie(movie)}>
+						-
+					</S.RemoveButton>
+				)}
 			</S.PosterContainer>
 			<S.TitleContainer>
 				<S.Title>{movie?.name}</S.Title>

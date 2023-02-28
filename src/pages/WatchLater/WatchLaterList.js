@@ -1,41 +1,41 @@
-import { useSelector, useDispatch } from "react-redux";
-import { clearList, removeMovie } from "../../../../services/redux/userSlice";
-import MovieList from "../../components/MovieList/MovieList";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeMovie } from "../../services/redux/userSlice";
+import WatchLater from "./WatchLater";
+import * as S from "./WatchLater.styles.js";
 
-function WatchLaterList() {
-	const watchLaterList = useSelector((state) => state.userSlice.watchLater);
+const WatchLaterList = () => {
 	const dispatch = useDispatch();
+	const watchLater = useSelector((state) => state.userSlice.watchLater);
+	const [isWatchLaterEmpty, setIsWatchLaterEmpty] = useState(true);
 
-	const handleRemoveFromWatchLater = (movie) => {
-		dispatch(removeMovie(movie));
+	const handleRemoveMovie = (id) => {
+		dispatch(removeMovie(id));
 	};
 
-	const handleClearList = () => {
-		dispatch(clearList());
-	};
+	if (watchLater.length > 0 && isWatchLaterEmpty) {
+		setIsWatchLaterEmpty(() => false);
+	}
 
 	return (
 		<div>
-			<h2>Watch Later List</h2>
-			{watchLaterList.length > 0 ? (
-				<>
-					<button onClick={handleClearList}>Clear List</button>
-					
-					<ul>
-						{watchLaterList.map((movie) => (
-							<li key={movie.id}>
-								{movie.title}{" "}
-								<button onClick={() => handleRemoveFromWatchLater(movie)}>
-									Remove
-								</button>
-							</li>
-						))}
-					</ul>
-				</>
+			{isWatchLaterEmpty ? (
+				<S.P>Your watch later list is empty.</S.P>
 			) : (
-				<p>Your watch later list is empty.</p>
+				<>
+					<WatchLater movies={watchLater} />
+					{watchLater.map((movie) => (
+						<S.RemoveButton
+							key={movie.id}
+							onClick={() => handleRemoveMovie(movie.id)}
+						>
+							-
+						</S.RemoveButton>
+					))}
+				</>
 			)}
 		</div>
 	);
-}
+};
+
 export default WatchLaterList;

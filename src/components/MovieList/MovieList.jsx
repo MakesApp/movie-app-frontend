@@ -3,8 +3,14 @@ import * as S from "./MovieList.styles";
 const MovieList = ({ movies, hideButton }) => {
 	console.log(movies);
 	const renderList = () => {
+		if (!movies) return null; 
+
 		return movies.map((movie) => (
-			<MovieCard key={movie.id} movie={movie} hideButton={hideButton}></MovieCard>
+			<MovieCard
+				key={movie.id}
+				movie={movie}
+				hideButton={hideButton}
+			></MovieCard>
 		));
 	};
 	return <S.Container>{renderList()}</S.Container>;
