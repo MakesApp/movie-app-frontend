@@ -5,7 +5,6 @@ const Header = () => {
 	return (
 		<S.Container>
 			<Navbar />
-			{/* <SearchBar /> */}
 		</S.Container>
 	);
 };

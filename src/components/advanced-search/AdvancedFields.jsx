@@ -8,11 +8,6 @@ export default function AdvancedFields({ topMovies }) {
 		})
 		.sort()
 		.reverse();
-	// const genreArr = [];
-	// topMovies
-	// 	.foreach((movie) => {
-	// 		if (!genreArr.includes(movie.genre)) genreArr.push(movie.genre);
-	// 	})
 	return (
 		<S.Container>
 			<S.Select name='' id=''>
@@ -33,16 +28,6 @@ export default function AdvancedFields({ topMovies }) {
 					);
 				})}
 			</S.Select>
-			{/* <select name='' id=''>
-					{genreArr &&
-						genreArr.map((genre, index) => {
-							return (
-								<option key={`genre${index}`} value={genre}>
-									{genre}
-								</option>
-							);
-						})}
-				</select> */}
 		</S.Container>
 	);
 }
