@@ -12,7 +12,8 @@ export const Icon = styled.i`
 `;
 
 export const PageLink = styled(Link)`
-	color: ${(props) => (props.isSelected ? "gold" : "whitesmoke")};
+color: ${(props) => (props.isselected ==='true'? "red" : "blue")};
+
 	padding: 0 10%;
 	text-decoration: none;
 	font-size: 1.3rem;

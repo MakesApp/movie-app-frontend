@@ -10,21 +10,26 @@ import { GET_TOP_MOVIES } from "./constants";
 export const moviesApi = createApi({
 	reducerPath: "moviesApi",
 	baseQuery: fetchBaseQuery({ baseUrl: `${BASE_URL}` }),
-	tagTypes: ["Moviesapi"],
-
+	tagTypes: 'Moviesapi',
 	endpoints: (builder) => ({
 		getLatestMovies: builder.query({
 			query: () => GET_LATEST_MOVIES(),
+			providesTags:'Moviesapi',
 		}),
+		
 		getTopMovies: builder.query({
 			query: () => GET_TOP_MOVIES(),
+			providesTags:'Moviesapi',
 		}),
+		
 		getMovieBySearchTerm: builder.query({
 			query: (searchTerm) => GET_MOVIE_BY_SEARCH_TERM(searchTerm),
+			providesTags:'Moviesapi',
 		}),
 		getMovieDetail: builder.query({
 			query: (id) => GET_DETAILED_MOVIE(id),
 		}),
+		
 	}),
 });
 export const {
