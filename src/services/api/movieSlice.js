@@ -1,11 +1,16 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BASE_URL } from "../../CONSTANS/constants";
-import { GET_LATEST_MOVIES, GET_MOVIE_BY_SEARCH_TERM,GET_DETAILED_MOVIE } from "./constants";
+import {
+	GET_LATEST_MOVIES,
+	GET_MOVIE_BY_SEARCH_TERM,
+	GET_DETAILED_MOVIE,
+} from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
 export const moviesApi = createApi({
 	reducerPath: "moviesApi",
-	baseQuery: fetchBaseQuery({ baseUrl: `${BASE_URL}` }),
+	baseQuery: fetchBaseQuery({ baseUrl: `http://localhost:5000/` }),
+	// baseQuery: fetchBaseQuery({ baseUrl: `${BASE_URL}` }),
 	tagTypes: ["Moviesapi"],
 
 	endpoints: (builder) => ({
