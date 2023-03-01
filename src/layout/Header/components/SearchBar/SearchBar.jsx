@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Detail, Search } from "../../../../routes/constants";
 import {
 	useGetLatestMoviesQuery,
 	useGetMovieBySearchTermQuery,
@@ -12,7 +11,6 @@ const SearchBar = () => {
 	const { data: latestMovies } = useGetLatestMoviesQuery();
 	const {data:topMovies}=useGetTopMoviesQuery();
 	const mergedmovies=latestMovies?.concat(topMovies)||[];
-	console.log( useGetLatestMoviesQuery());
 	const [searchValue, setSearchValue] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
 	const [fetch, setfetch] = useState(false);

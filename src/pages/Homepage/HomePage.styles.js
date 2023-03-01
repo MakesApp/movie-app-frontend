@@ -13,7 +13,6 @@ export const Button = styled.button`
 	padding: 0.5rem 2rem;
 	border-radius: 20px;
 	border: solid 0.5px #efcca2;
-	/* font-size: 150%; */
 	font-weight: bold;
 	cursor: pointer;
 `;
@@ -25,6 +24,9 @@ export const h1 = styled.h1`
 export const h2 = styled.h2`
 	color: var(--primary-color);
 	font-size: 70px;
+`;
+export const Img = styled.img`
+	width: 35%;
 `;
 export const HeadersContainer = styled.div`
 	display: flex;

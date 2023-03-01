@@ -9,7 +9,6 @@ const Pagination = ({ totalPage, pageNumber, path }) => {
 					className='fa-solid fa-angles-left'
 					hidden={parseInt(pageNumber) - 1 <= 0}
 				></S.Icon>
-				{/* <button disabled={parseInt(pageNumber) - 1 <= 0}>Previous</button> */}
 			</Link>
 			{[...Array(Math.ceil(totalPage / MOVIES_PER_PAGE))].map((x, i) => (
 				<S.PageLink
@@ -25,9 +24,7 @@ const Pagination = ({ totalPage, pageNumber, path }) => {
 					className='fa-solid fa-angles-right'
 					hidden={parseInt(pageNumber) + 1 > Math.ceil(totalPage / 10)}
 				></S.Icon>
-				{/* <button disabled={parseInt(pageNumber) + 1 > Math.ceil(totalPage / 10)}>
-					Next
-				</button> */}
+
 			</Link>
 		</S.Container>
 	);

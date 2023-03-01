@@ -6,7 +6,6 @@ export const SearchBar = styled.div`
 	flex-direction: column;
 	gap: 0.2rem;
 	overflow: visible;
-	/* height: 3rem; */
 `;
 export const SearchBarForm = styled.form`
 	display: flex;
@@ -37,7 +36,6 @@ export const SearchBarSubmit = styled.input`
 	height: 2rem;
 	cursor: pointer;
 	font-weight: 500;
-	/* font-size: 0.9rem; */
 	transition: all 0.15s ease;
 	&:hover {
 		background-color: white;
@@ -46,7 +44,6 @@ export const SearchBarSubmit = styled.input`
 `;
 export const SearchBarSuggestions = styled.div`
 	display: flex;
-	/* gap: 0.5%; */
 	flex-direction: column;
 	position: absolute;
 	top: 100%;
@@ -60,7 +57,6 @@ export const SearchBarSuggestion = styled(Link)`
 	height: 2rem;
 	text-align: center;
 	text-decoration: none;
-	/* color: black; */
 	color: whitesmoke;
 	display: flex;
 	flex-direction: row;
