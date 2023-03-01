@@ -9,10 +9,9 @@ import {
 import * as S from "./SearchBar.styles";
 const SearchBar = () => {
 	const navigate=useNavigate();
-	const { data: latestMovies } = useGetLatestMoviesQuery();
-	const {data:topMovies}=useGetTopMoviesQuery();
+	const { data: latestMovies } = useGetLatestMoviesQuery({},{refetchOnMountOrArgChange:true});
+	const {data:topMovies}=useGetTopMoviesQuery({},{refetchOnMountOrArgChange:true});
 	const mergedmovies=latestMovies?.concat(topMovies)||[];
-	console.log( useGetLatestMoviesQuery());
 	const [searchValue, setSearchValue] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
 	const [fetch, setfetch] = useState(false);
@@ -43,7 +42,7 @@ const SearchBar = () => {
 
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
-		setSearchSuggestions([]);
+		// setSearchSuggestions([]);
 		setfetch(true);
 		navigate(`search/${searchValue}/page/1`);
 
