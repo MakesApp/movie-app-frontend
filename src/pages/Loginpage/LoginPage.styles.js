@@ -54,7 +54,7 @@ export const LoginButton = styled.button`
 	}
 `;
 
-export const SignInButton = styled.button`
+export const SignInButton = styled.a`
 	display: flex;
 	align-items: center;
 	justify-content: center;

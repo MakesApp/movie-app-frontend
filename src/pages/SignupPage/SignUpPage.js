@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import * as S from "./SignUpPage.styles";
+import axios from "axios";
+import { LOGIN } from "../../routes/constants";
+import { Link } from "react-router-dom";
 
 const SignupPage = () => {
 	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState({});
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
+		await axios.post(process.env.REACT_APP_BASE_URL + "api/user/register", {
+			userName: name,
+			password: password,
+		});
 	};
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		if (name === "name") setName(value);
-		else if (name === "email") setEmail(value);
 		else if (name === "password") setPassword(value);
 		else if (name === "confirmPassword") setConfirmPassword(value);
 	};
@@ -35,19 +40,6 @@ const SignupPage = () => {
 				/>
 				{errors.name && (
 					<S.SignupErrorMessage>{errors.name}</S.SignupErrorMessage>
-				)}
-
-				<S.SignupLabel htmlFor='email'>Email:</S.SignupLabel>
-				<S.SignupInput
-					type='email'
-					id='email'
-					name='email'
-					value={email}
-					onChange={handleChange}
-					required
-				/>
-				{errors.email && (
-					<S.SignupErrorMessage>{errors.email}</S.SignupErrorMessage>
 				)}
 
 				<S.SignupLabel htmlFor='password'>Password:</S.SignupLabel>
@@ -80,6 +72,7 @@ const SignupPage = () => {
 
 				<S.SignupButton type='submit'>Sign Up</S.SignupButton>
 			</S.SignupForm>
+			<Link to={LOGIN}>Login</Link>
 		</S.SignupContainer>
 	);
 };

@@ -42,11 +42,15 @@ export const NavbarLink = styled(Link)`
 	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: none;
 	margin: 10px;
-	@media (max-width: 700px) {
-		display: none;
-	}
 `;
 
+export const Logout = styled.a`
+	color: #efcca2;
+	font-size: x-large;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	margin: 10px;
+`;
 export const NavbarLinkExtended = styled(Link)`
 	color: white;
 	font-size: x-large;

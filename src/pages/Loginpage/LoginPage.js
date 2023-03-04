@@ -1,53 +1,64 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import * as S from "./LoginPage.styles";
+import axios from "axios";
 const LoginPage = () => {
-	const [name, setName] = useState("");
-	const [password, setPassword] = useState("");
-	const [nameError, setNameError] = useState("");
-	const [passwordError, setPasswordError] = useState("");
+	const navigate = useNavigate();
+	const [credentials, setCredentials] = useState({
+		userName: "",
+		password: "",
+	});
+	const [errors, setErrors] = useState({ userName: "", password: "" });
 
 	const handleNameChange = (e) => {
-		setName(e.target.value);
-
-		if (e.target.value.trim() === "") {
-			setNameError("Username is required");
-		} else {
-			setNameError("");
-		}
+		setCredentials((prev) => ({ ...prev, userName: e.target.value }));
 	};
 
 	const handlePasswordChange = (e) => {
-		setPassword(e.target.value);
-
-		const passwordPattern =
-			/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-		if (!passwordPattern.test(e.target.value)) {
-			setPasswordError(
-				"Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number"
-			);
-		} else {
-			setPasswordError("");
-		}
+		setCredentials((prev) => ({ ...prev, password: e.target.value }));
 	};
 
+	const fetchAuthUser = () => {
+		axios
+			.get(process.env.REACT_APP_BASE_URL + "api/auth/user", {
+				withCredentials: true,
+			})
+			.then((data) => console.log(data.data))
+			.catch((err) => console.log(err));
+	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		axios
+			.post(
+				"http://localhost:8080/login",
+				{ username: "ameer", password: "123" },
+				{
+					withCredentials: true,
+				}
+			)
+			.then(
+				(res) => {
+					if (res.data === "success") {
+						fetchAuthUser();
+						window.location.href = "/";
+					}
+				},
+				() => {
+					console.log("Failure");
+				}
+			);
 	};
-
-	const handleSignIn = async () => {};
 
 	return (
 		<S.LoginContainer>
-			<S.LoginForm onSubmit={handleSubmit}>
+			<S.LoginForm onSubmit={(e) => handleSubmit(e)}>
 				<S.LoginTitle>Login Page</S.LoginTitle>
-				<S.LoginLabel htmlFor='email'>Name:</S.LoginLabel>
+				<S.LoginLabel htmlFor='name'>Name:</S.LoginLabel>
 				<S.LoginInput
-					type='name'
 					id='name'
 					name='name'
-					value={name}
-					onChange={handleNameChange}
+					value={credentials?.userName}
+					onChange={(e) => handleNameChange(e)}
 					required
 				/>
 				<S.LoginLabel htmlFor='password'>Password:</S.LoginLabel>
@@ -55,20 +66,20 @@ const LoginPage = () => {
 					type='password'
 					id='password'
 					name='password'
-					value={password}
-					onChange={handlePasswordChange}
+					value={credentials?.password}
+					onChange={(e) => handlePasswordChange(e)}
 					required
 				/>
 				<S.LoginButton type='submit'>Login</S.LoginButton>
 
-				<S.SignInButton onClick={handleSignIn}>
-					<S.GoogleIcon src='https://cdn.iconscout.com/icon/free/png-256/google-470-675827.png' />
-					Sign in with Google
-				</S.SignInButton>
 				<S.ParaSign>
-					Dont have an account? <Link to='/Signup'>Sign up here</Link>.
+					Dont have an account? <Link to='/signup'>Sign up here</Link>.
 				</S.ParaSign>
 			</S.LoginForm>
+			<S.SignInButton href={process.env.REACT_APP_BASE_URL + "api/auth/google"}>
+				<S.GoogleIcon src='https://cdn.iconscout.com/icon/free/png-256/google-470-675827.png' />
+				Sign in with Google
+			</S.SignInButton>
 		</S.LoginContainer>
 	);
 };

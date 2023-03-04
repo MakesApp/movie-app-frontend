@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import * as S from "./Navbar.styles";
 
 function Navbar() {
 	const [extendNavbar, setExtendNavbar] = useState(false);
+	const user = useSelector((state) => state.userSlice);
 
 	return (
 		<S.NavbarContainer extendNavbar={extendNavbar}>
@@ -24,7 +26,8 @@ function Navbar() {
 					</S.NavbarLinkContainer>
 				</S.LeftContainer>
 				<S.RightContainer>
-					<S.NavbarLink to='/LoginPage'>Login</S.NavbarLink>		
+					{!user&&<S.NavbarLink to='/login'>Login</S.NavbarLink>}		
+					{user&&<S.Logout href={process.env.REACT_APP_BASE_URL+ 'api/logout'}  >Logout</S.Logout>}		
 					{/* <S.NavbarLink to='/SignupPage'>SignUp</S.NavbarLink>  */}
 					{/* <S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo> */}
 				</S.RightContainer>
@@ -33,11 +36,9 @@ function Navbar() {
 				<S.NavbarExtendedContainer>
 					<S.NavbarLinkExtended to='/'> Home</S.NavbarLinkExtended>
 					<S.NavbarLinkExtended to='/ai-generated-movies'>
-						{" "}
 						AI Generated Movies
 					</S.NavbarLinkExtended>
 					<S.NavbarLinkExtended to='/advanced-search'>
-						{" "}
 						Advanced Search
 					</S.NavbarLinkExtended>
 					<S.NavbarLinkExtended to='/popular-actors'>

@@ -12,7 +12,6 @@ const SearchBar = () => {
 	const { data: latestMovies } = useGetLatestMoviesQuery();
 	const {data:topMovies}=useGetTopMoviesQuery();
 	const mergedmovies=latestMovies?.concat(topMovies)||[];
-	console.log( useGetLatestMoviesQuery());
 	const [searchValue, setSearchValue] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
 	const [fetch, setfetch] = useState(false);
@@ -20,10 +19,10 @@ const SearchBar = () => {
 		skip: !fetch,
 	});
 	useEffect(()=>{
-        if(searchedMovies){
-        setfetch(false);
+		if(searchedMovies){
+			setfetch(false);
 		}
-    },[searchedMovies]);
+	},[searchedMovies]);
 
 	const filterByQuery = (query) => {
 		if (query === "") return [];
