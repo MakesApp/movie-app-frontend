@@ -61,6 +61,7 @@ export const SignInButton = styled.a`
 	height: 40px;
 	background-color: #fff;
 	border: 2px solid #007bff;
+	text-decoration: none;
 	border-radius: 2px;
 	color: #007bff;
 	font-size: 22px;
@@ -88,4 +89,9 @@ export const LoginErrorMessage = styled.div`
 
 export const ParaSign = styled.p`
 	margin-top: 30px;
+`;
+
+export const ErrorMessage = styled.p`
+	color: red;
+	margin: 0.5rem 0 0;
 `;

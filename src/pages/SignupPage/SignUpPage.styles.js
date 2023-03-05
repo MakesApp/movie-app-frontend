@@ -58,7 +58,7 @@ export const SignupLabel = styled.label`
 	margin: 1rem 0 0.5rem;
 `;
 
-export const SignupErrorMessage = styled.p`
+export const ErrorMessage = styled.p`
 	color: red;
 	margin: 0.5rem 0 0;
 `;
