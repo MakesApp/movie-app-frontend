@@ -12,7 +12,7 @@ import {
 	DETAIL,
 	ADVANCEDSEARCH,
 } from "./constants";
-import AdvancedSearch from "../pages/advancedSearch/AdvancedSearch";
+import AdvancedSearch from "../pages/AdvancedSearch/AdvancedSearch";
 const RouteConfig = () => {
 	return (
 		<Routes>
