@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import AdvancedSearch from "../pages/advanced-search/AdvancedSearch";
+import AdvancedSearch from "../pages/AdvancedSearch/AdvancedSearch";
 import DetailPage from "../pages/DetailPage/DetailPage";
 import HomePage from "../pages/Homepage/HomePage";
 import SearchResults from "../pages/Searchresults/SearchResults";

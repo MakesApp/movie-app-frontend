@@ -5,6 +5,8 @@ import {
 	GET_LATEST_MOVIES,
 	GET_MOVIE_BY_SEARCH_TERM,
 	GET_DETAILED_MOVIE,
+	GET_ADVANCED_SEARCH,
+	GET_ALL_MOVIES,
 } from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
 export const moviesApi = createApi({
@@ -26,6 +28,9 @@ export const moviesApi = createApi({
 		getMovieDetail: builder.query({
 			query: (id) => GET_DETAILED_MOVIE(id),
 		}),
+		getAdvancedSearch: builder.query({
+			query: (movieProps) => GET_ADVANCED_SEARCH(movieProps),
+		}),
 	}),
 });
 export const {
@@ -33,4 +38,6 @@ export const {
 	useGetTopMoviesQuery,
 	useGetMovieBySearchTermQuery,
 	useGetMovieDetailQuery,
+	useGetAdvancedSearchQuery,
+	useGetAllMoviesQuery,
 } = moviesApi;

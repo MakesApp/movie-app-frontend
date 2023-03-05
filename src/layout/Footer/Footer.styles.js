@@ -5,6 +5,9 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	padding: 5px;
+	position: fixed;
+	right: 0;
+	bottom: 0;
 `;
 
 export const paragraph = styled.p`
