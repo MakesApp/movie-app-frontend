@@ -18,10 +18,10 @@ const SearchBar = () => {
 		skip: !fetch,
 	});
 	useEffect(()=>{
-        if(searchedMovies){
-        setfetch(false);
+		if(searchedMovies){
+			setfetch(false);
 		}
-    },[searchedMovies]);
+	},[searchedMovies]);
 
 	const filterByQuery = (query) => {
 		if (query === "") return [];
