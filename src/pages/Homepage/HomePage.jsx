@@ -18,9 +18,9 @@ const HomePage = () => {
 	const isFetching = latestFetching || topFetching;
 
 	return (
-		<>
+		<div style={{ minHeight: "100vh" }}>
 			<S.HeadersContainer>
-				<S.h1>Welcome to LaLa Land</S.h1>
+				<S.Img src='/img/logo.png' alt='' />
 				<br />
 			</S.HeadersContainer>
 
@@ -49,7 +49,7 @@ const HomePage = () => {
 					{sortBy === "top" && topMovies && <MovieList movies={topMovies} />}
 				</>
 			)}
-		</>
+		</div>
 	);
 };
 
