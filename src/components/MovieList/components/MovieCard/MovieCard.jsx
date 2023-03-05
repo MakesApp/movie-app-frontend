@@ -1,8 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addMovie, removeMovie } from "../../../../services/redux/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPlus, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { toast } from "react-hot-toast";
+import { faTrash, faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./MovieCard.styles";
 import { useState } from "react";
 
@@ -13,7 +12,6 @@ const MovieCard = ({ movie, hideButton }) => {
 	const handleAddToWatchLater = () => {
 		dispatch(addMovie(movie));
 		setIsAddedToWatchLater(true);
-		toast.success("Added to watch later!");
 	};
 	const handleRemoveMovie = (movie) => {
 		dispatch(removeMovie(movie));
@@ -30,7 +28,7 @@ const MovieCard = ({ movie, hideButton }) => {
 						onClick={() => handleAddToWatchLater()}
 					>
 						<FontAwesomeIcon
-							icon={isAddedToWatchLater ? faHeart : faPlus}
+							icon={isAddedToWatchLater ? faCheck : faPlus}
 							size='lg'
 						/>
 					</S.AddButton>

@@ -6,8 +6,14 @@ const userSlice = createSlice({
 	initialState: intialUserState,
 	reducers: {
 		addMovie: (state, action) => {
-			if (!state.watchLater.find((movie) => movie.id === action.payload.id)) {
-				state.watchLater.push(action.payload);
+			const existingMovie = state.watchLater.find(
+				(movie) => movie.id === action.payload.id
+			);
+			if (!existingMovie) {
+				const movieToAdd = { ...action.payload, isAddedToWatchLater: true };
+				state.watchLater.push(movieToAdd);
+			} else {
+				existingMovie.isAddedToWatchLater = true;
 			}
 		},
 		removeMovie: (state, action) => {
