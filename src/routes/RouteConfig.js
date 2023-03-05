@@ -1,17 +1,27 @@
 import { Route, Routes } from "react-router-dom";
-import AdvancedSearch from "../pages/AdvancedSearch/AdvancedSearch";
 import DetailPage from "../pages/DetailPage/DetailPage";
 import HomePage from "../pages/Homepage/HomePage";
+import LoginPage from "../pages/Loginpage/LoginPage";
 import SearchResults from "../pages/Searchresults/SearchResults";
-import { HOME, Search } from "./constants";
-import { Detail, Advanced } from "./constants";
+import SignupPage from "../pages/SignupPage/SignUpPage";
+import {
+	HOME,
+	SEARCH,
+	LOGIN,
+	SIGNUP,
+	DETAIL,
+	ADVANCEDSEARCH,
+} from "./constants";
+import AdvancedSearch from "../pages/advancedSearch/AdvancedSearch";
 const RouteConfig = () => {
 	return (
 		<Routes>
+			<Route path={LOGIN} element={<LoginPage />} />
+			<Route path={SIGNUP} element={<SignupPage />} />
 			<Route path={HOME} element={<HomePage />} />
-			<Route path={Search} element={<SearchResults />}></Route>
-			<Route path={Detail} element={<DetailPage />} />
-			<Route path={Advanced} element={<AdvancedSearch />} />
+			<Route path={SEARCH} element={<SearchResults />}></Route>
+			<Route path={DETAIL} element={<DetailPage />} />
+			<Route path={ADVANCEDSEARCH} element={<AdvancedSearch />} />
 		</Routes>
 	);
 };

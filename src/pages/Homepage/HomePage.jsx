@@ -5,18 +5,22 @@ import {
 	useGetTopMoviesQuery,
 } from "../../services/api/movieSlice";
 import * as S from "./HomePage.styles";
+import Spinner from "../../components/Spinner/Spinner";
 
 const HomePage = () => {
-	const { data: latestMovies } = useGetLatestMoviesQuery();
-	const { data: topMovies } = useGetTopMoviesQuery();
+	const { data: latestMovies, isFetching: latestFetching } =
+		useGetLatestMoviesQuery();
+	const { data: topMovies, isFetching: topFetching } = useGetTopMoviesQuery();
 	const [sortBy, setSortBy] = useState("latest");
 	const handleOnClick = (value) => {
 		setSortBy(value);
 	};
+	const isFetching = latestFetching || topFetching;
+
 	return (
-		<>
+		<div style={{ minHeight: "100vh" }}>
 			<S.HeadersContainer>
-				<S.h1>Welcome to LaLa Land</S.h1>
+				<S.Img src='/img/logo.png' alt='' />
 				<br />
 			</S.HeadersContainer>
 
@@ -34,11 +38,18 @@ const HomePage = () => {
 					Top Movies{" "}
 				</S.Button>
 			</S.ButtonsContainer>
-			{sortBy === "latest" && latestMovies && (
-				<MovieList movies={latestMovies} />
+
+			{isFetching ? (
+				<Spinner />
+			) : (
+				<>
+					{sortBy === "latest" && latestMovies && (
+						<MovieList movies={latestMovies} />
+					)}
+					{sortBy === "top" && topMovies && <MovieList movies={topMovies} />}
+				</>
 			)}
-			{sortBy === "top" && topMovies && <MovieList movies={topMovies} />}
-		</>
+		</div>
 	);
 };
 
