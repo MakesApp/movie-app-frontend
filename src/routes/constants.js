@@ -1,4 +1,6 @@
 export const HOME = "/";
-export const Search="/search/:searchQuery/page/:page";
-export const Detail = "movies/details/:id";
-export const Watch = "/watchlater";
+export const SEARCH = "/search/:searchQuery/page/:page";
+export const DETAIL = "/movies/details/:id";
+export const LOGIN = "/login";
+export const SIGNUP = "/signup";
+export const WATCH = "/watchlater";

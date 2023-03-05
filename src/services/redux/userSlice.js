@@ -1,5 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
-export const intialUserState = { watchLater: [] };
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+export const intialUserState = {watchLater:[]} || null;
+export const fetchUser = createAsyncThunk("userSlice/fetchUser", async () => {
+	const response = await axios.get(
+		process.env.REACT_APP_BASE_URL + "api/auth/user",
+		{
+			withCredentials: true,
+		}
+	);
+	return response.data;
+});
 
 const userSlice = createSlice({
 	name: "userSlice",
@@ -24,8 +34,18 @@ const userSlice = createSlice({
 		clearList: (state) => {
 			return [];
 		},
+		setUser: (state, action) => {
+			return action.payload;
+		},
+	},
+	extraReducers: (builder) => {
+		builder.addCase(fetchUser.pending, (state) => {});
+		builder.addCase(fetchUser.fulfilled, (state, action) => {
+			return action.payload;
+		});
+		builder.addCase(fetchUser.rejected, (state, action) => {});
 	},
 });
 
-export const { addMovie, removeMovie, clearList } = userSlice.actions;
+export const { setUser, addMovie, removeMovie, clearList } = userSlice.actions;
 export default userSlice.reducer;
