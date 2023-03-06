@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-export const intialUserState = {watchLater:[]} || null;
+export const intialUserState = { watchLater: [] } || null;
 export const fetchUser = createAsyncThunk("userSlice/fetchUser", async () => {
 	const response = await axios.get(
 		process.env.REACT_APP_BASE_URL + "api/auth/user",
@@ -13,23 +13,22 @@ export const fetchUser = createAsyncThunk("userSlice/fetchUser", async () => {
 
 const userSlice = createSlice({
 	name: "userSlice",
-	initialState: intialUserState,
+	initialState: { watchLater: [], addedMovieIds: [] },
 	reducers: {
-		addMovie: (state, action) => {
-			const existingMovie = state.watchLater.find(
-				(movie) => movie.id === action.payload.id
-			);
-			if (!existingMovie) {
-				const movieToAdd = { ...action.payload, isAddedToWatchLater: true };
-				state.watchLater.push(movieToAdd);
-			} else {
-				existingMovie.isAddedToWatchLater = true;
-			}
+		addToWatchLater: (state, action) => {
+			 if (!state.watchLater.find((movie) => movie.id === action.payload.id)) {
+					const movieToAdd = { ...action.payload, isAddedToWatchLater: true };
+					state.watchLater.push(movieToAdd);
+					state.addedMovieIds.push(action.payload.id);
+				}
 		},
-		removeMovie: (state, action) => {
-			state.watchLater = state.watchLater.filter((movie) => {
-				return movie.id !== action.payload.id;
-			});
+		removeFromWatchLater: (state, action) => {
+			 state.watchLater = state.watchLater.filter(
+					(movie) => movie.id !== action.payload.id
+				);
+			state.addedMovieIds = state.addedMovieIds.filter(
+				(id) => id !== action.payload.id
+			);
 		},
 		clearList: (state) => {
 			return [];
@@ -47,5 +46,7 @@ const userSlice = createSlice({
 	},
 });
 
-export const { setUser, addMovie, removeMovie, clearList } = userSlice.actions;
+export const { setUser, addToWatchLater, removeFromWatchLater, clearList } =
+	userSlice.actions;
+
 export default userSlice.reducer;

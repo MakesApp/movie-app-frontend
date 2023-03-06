@@ -11,9 +11,9 @@ const WatchLater = () => {
 
 	return (
 		<div>
-			<S.h2>My Movies List</S.h2>
+			<S.Title>My Movies List</S.Title>
 			{isWatchLaterEmpty ? (
-				<S.P>Your watch later list is empty.</S.P>
+				<S.Message>Your watch later list is empty.</S.Message>
 			) : (
 				<MovieList movies={watchLater} hideButton={hideButton} />
 			)}

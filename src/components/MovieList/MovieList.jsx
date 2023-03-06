@@ -1,9 +1,8 @@
 import MovieCard from "./components/MovieCard/MovieCard";
 import * as S from "./MovieList.styles";
 const MovieList = ({ movies, hideButton }) => {
-	console.log(movies);
 	const renderList = () => {
-		if (!movies) return null; 
+		if (!movies) return null;
 
 		return movies.map((movie) => (
 			<MovieCard

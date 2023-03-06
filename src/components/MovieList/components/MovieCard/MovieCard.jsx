@@ -1,20 +1,24 @@
-import { useDispatch } from "react-redux";
-import { addMovie, removeMovie } from "../../../../services/redux/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	addToWatchLater,
+	removeFromWatchLater,
+} from "../../../../services/redux/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./MovieCard.styles";
-import { useState } from "react";
 
 const MovieCard = ({ movie, hideButton }) => {
 	const dispatch = useDispatch();
-	const [isAddedToWatchLater, setIsAddedToWatchLater] = useState(false);
+	const addedMovieIds = useSelector((state) => state.userSlice.addedMovieIds);
+
+	const isAddedToWatchLater = addedMovieIds.includes(movie.id);
 
 	const handleAddToWatchLater = () => {
-		dispatch(addMovie(movie));
-		setIsAddedToWatchLater(true);
+		dispatch(addToWatchLater(movie));
+		isAddedToWatchLater(true);
 	};
-	const handleRemoveMovie = (movie) => {
-		dispatch(removeMovie(movie));
+	const handleRemoveFromWatchLater = (movie) => {
+		dispatch(removeFromWatchLater(movie));
 	};
 
 	return (
@@ -34,7 +38,7 @@ const MovieCard = ({ movie, hideButton }) => {
 					</S.AddButton>
 				)}
 				{hideButton && (
-					<S.RemoveButton onClick={() => handleRemoveMovie(movie)}>
+					<S.RemoveButton onClick={() => handleRemoveFromWatchLater(movie)}>
 						<FontAwesomeIcon icon={faTrash} size='lg' />
 					</S.RemoveButton>
 				)}

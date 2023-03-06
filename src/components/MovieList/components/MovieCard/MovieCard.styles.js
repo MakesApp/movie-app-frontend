@@ -64,7 +64,7 @@ export const Year = styled.span`
 	padding-bottom: 3%;
 `;
 
-export const AddButton = styled.button`
+ const Button = styled.button`
 	position: absolute;
 	bottom: 10%;
 	left: -6%;
@@ -80,18 +80,5 @@ export const AddButton = styled.button`
 	cursor: pointer;
 `;
 
-export const RemoveButton = styled.button`
-	position: absolute;
-	bottom: 10%;
-	left: -6%;
-	background-color: var(--primary-color);
-	border-radius: 50%;
-	border-color: transparent;
-	height: 35px;
-	width: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: var(--white-color);
-	cursor: pointer;
-`;
+export const AddButton = styled.button(Button);
+export const RemoveButton = styled.button(Button);
