@@ -1,8 +1,8 @@
 import * as S from "./MovieCard.styles";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie,handleOnClick }) => {
 	return (
-		<S.Container>
+		<S.Container onClick={handleOnClick}>
 			<S.PosterContainer>
 				<S.Poster src={movie?.poster} alt='movie image' />
 				<S.Rating>{movie?.rating || "7.5"}</S.Rating>
