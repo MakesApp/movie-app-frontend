@@ -1,5 +1,8 @@
 import styled from "styled-components/macro";
 
+export const Container = styled.div`
+	overflow: hidden;
+`;
 export const ButtonsContainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
@@ -32,5 +35,19 @@ export const HeadersContainer = styled.div`
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	overflow: hidden;
 	padding-top: 20px;
+`;
+
+export const CarouselWrapper = styled.div`
+	display: flex;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	width: 650px;
+	@media screen and (max-width: 460px) {
+		width: 100%;
+		margin: 0;
+		display: block;
+	}
 `;

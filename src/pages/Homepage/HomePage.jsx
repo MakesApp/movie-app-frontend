@@ -2,23 +2,30 @@ import { useState } from "react";
 import MovieList from "../../components/MovieList/MovieList";
 import {
 	useGetLatestMoviesQuery,
+	useGetRandomMoviesQuery,
 	useGetTopMoviesQuery,
 } from "../../services/api/movieSlice";
 import * as S from "./HomePage.styles";
 import Spinner from "../../components/Spinner/Spinner";
+import Carousel from "../../components/Carousel/Carousel";
 
 const HomePage = () => {
 	const { data: latestMovies, isFetching: latestFetching } =
 		useGetLatestMoviesQuery();
+	const { data: randomMovies, isFetching: randomFetching } =
+		useGetRandomMoviesQuery();
 	const { data: topMovies, isFetching: topFetching } = useGetTopMoviesQuery();
 	const [sortBy, setSortBy] = useState("latest");
 	const handleOnClick = (value) => {
 		setSortBy(value);
 	};
-	const isFetching = latestFetching || topFetching;
+	const isFetching = latestFetching || topFetching||randomFetching;
 
 	return (
-		<div style={{ minHeight: "100vh" }}>
+		<S.Container >
+			<S.CarouselWrapper>
+				<Carousel data={randomMovies}/>
+			</S.CarouselWrapper>
 			<S.HeadersContainer>
 				<S.Img src='/img/logo.png' alt='' />
 				<br />
@@ -49,7 +56,7 @@ const HomePage = () => {
 					{sortBy === "top" && topMovies && <MovieList movies={topMovies} />}
 				</>
 			)}
-		</div>
+		</S.Container>
 	);
 };
 
