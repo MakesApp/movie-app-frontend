@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import MovieCard from '../../components/MovieCard/MovieCard';
 import MovieList from '../../components/MovieList/MovieList';
 import { MOVIES_PER_PAGE } from '../../components/Pagination/constants';
 import Pagination from '../../components/Pagination/Pagination';
-import { Search } from '../../routes/constants';
-import {  useGetMovieBySearchTermQuery } from '../../services/api/movieSlice';
+import {  useGetMovieBySearchTermQuery } from '../../services/api/movieApi';
 
 const SearchResults = () => {
 	const params=useParams();
@@ -19,7 +18,14 @@ const SearchResults = () => {
 				pageNumber={page??"1"}
 				path={`/search/${searchQuery}/page`}
 			/>
-			<MovieList movies={movies?.slice((page-1)*MOVIES_PER_PAGE, page*MOVIES_PER_PAGE-1)}/>
+			<MovieList >
+				{movies?.slice((page-1)*MOVIES_PER_PAGE, page*MOVIES_PER_PAGE-1)?.map(movie=>
+        	<MovieCard
+						key={movie.id}
+						movie={movie}
+					></MovieCard>
+				)}
+			</MovieList>
 		</>
 	);
 };

@@ -4,7 +4,9 @@ import HomePage from "../pages/Homepage/HomePage";
 import LoginPage from "../pages/Loginpage/LoginPage";
 import SearchResults from "../pages/Searchresults/SearchResults";
 import SignupPage from "../pages/SignupPage/SignUpPage";
-import { HOME, SEARCH, LOGIN, SIGNUP, DETAIL } from "./constants";
+import { HOME, SEARCH, LOGIN, SIGNUP, DETAIL, WATCH } from "./constants";
+import WatchLater from "../pages/WatchLater/WatchLater";
+import ProtectedRoute from "./ProtectedRoute";
 const RouteConfig = () => {
 	return (
 		<Routes>
@@ -13,6 +15,14 @@ const RouteConfig = () => {
 			<Route path={HOME} element={<HomePage />} />
 			<Route path={SEARCH} element={<SearchResults />}></Route>
 			<Route path={DETAIL} element={<DetailPage />} />
+			<Route
+				path={WATCH}
+				element={
+					<ProtectedRoute>
+						<WatchLater />
+					</ProtectedRoute>
+				}
+			/>
 		</Routes>
 	);
 };
