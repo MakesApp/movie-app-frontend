@@ -24,7 +24,7 @@ function Navbar() {
 				</S.LeftContainer>
 				<S.RightContainer>
 					{!user&&<S.NavbarLink to='/login'>Login</S.NavbarLink>}		
-					{user&&<S.Logout href={process.env.REACT_APP_BASE_URL+ 'api/logout'}  >Logout</S.Logout>}		
+					{user&&<S.Logout href={process.env.REACT_APP_API_URL+ 'api/logout'}  >Logout</S.Logout>}		
 					{/* <S.NavbarLink to='/SignupPage'>SignUp</S.NavbarLink>  */}
 					{/* <S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo> */}
 				</S.RightContainer>

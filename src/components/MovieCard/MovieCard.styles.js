@@ -4,23 +4,20 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 	width: 300px;
 `;
 export const PosterContainer = styled.div`
 	position: relative;
-	margin-left: 10px;
-	width: 400px;
 `;
 export const Poster = styled.img`
-	width: 50%;
+	width: 100%;
 	display: block;
-	/* height: 20rem; */
 	border-radius: 1rem;
 	object-fit: cover;
 	border: 2px whitesmoke solid;
 	box-shadow: rgba(20, 64, 67, 0.3) 0px 1px 2px 0px,
 		rgba(20, 64, 67, 0.15) 0px 1px 3px 1px;
-	margin: auto;
 	cursor: pointer;
 	&:hover {
 		border: 2px gold solid;
@@ -63,22 +60,3 @@ export const Year = styled.span`
 	color: grey;
 	padding-bottom: 3%;
 `;
-
- const Button = styled.button`
-	position: absolute;
-	bottom: 10%;
-	left: -6%;
-	background-color: var(--primary-color);
-	border-radius: 50%;
-	border-color: transparent;
-	height: 35px;
-	width: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: var(--white-color);
-	cursor: pointer;
-`;
-
-export const AddButton = styled.button(Button);
-export const RemoveButton = styled.button(Button);
