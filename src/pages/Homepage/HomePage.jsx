@@ -3,6 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import {
 	useAddMovieToWatchLaterMutation,
 	useGetLatestMoviesQuery,
+	useGetRandomMoviesQuery,
 	useGetTopMoviesQuery,
 } from "../../services/api/movieApi";
 import * as S from "./HomePage.styles";
@@ -13,6 +14,8 @@ import { addToWatchLater } from "../../services/redux/userSlice";
 import {  useNavigate } from "react-router-dom";
 import { LOGIN } from "../../routes/constants";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import Spinner from "../../components/Spinner/Spinner";
+import Carousel from "../../components/Carousel/Carousel";
 
 
 const HomePage = () => {
@@ -21,11 +24,13 @@ const HomePage = () => {
 	const user = useSelector((state) => state.userSlice);
 	const watchLaterList=user?.watchLater;
 	
-
-	const { data: latestMovies } = useGetLatestMoviesQuery();
-	const { data: topMovies } = useGetTopMoviesQuery();
 	const [addMovieToWatchLater]=useAddMovieToWatchLaterMutation(user?.id);
 
+	const { data: latestMovies, isFetching: latestFetching } =
+		useGetLatestMoviesQuery();
+	const { data: randomMovies, isFetching: randomFetching } =
+		useGetRandomMoviesQuery();
+	const { data: topMovies, isFetching: topFetching } = useGetTopMoviesQuery();
 	const [sortBy, setSortBy] = useState("latest");
 
 	const handleAddToWatchLater = async(movieId) => {
@@ -70,8 +75,13 @@ const HomePage = () => {
 	const handleOnClick = (value) => {
 		setSortBy(value);
 	};
+	const isFetching = latestFetching || topFetching||randomFetching;
+
 	return (
-		<div style={{ minHeight: "100vh" }}>
+		<S.Container >
+			<S.CarouselWrapper>
+				<Carousel data={randomMovies}/>
+			</S.CarouselWrapper>
 			<S.HeadersContainer>
 				<S.Img src='/img/logo.png' alt='' />
 				<br />
@@ -92,7 +102,7 @@ const HomePage = () => {
 				</S.Button>
 			</S.ButtonsContainer>
 			{renderMovies()}
-		</div>
+		</S.Container>
 	);
 };
 

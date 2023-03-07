@@ -3,7 +3,6 @@ import * as S from "./MovieCard.styles";
 
 const MovieCard = ({ movie ,children}) => {
 
-
 	return (
 		<S.Container >
 			<S.PosterContainer>

@@ -8,8 +8,10 @@ import {
 	ADD_MOVE_TO_WATCH_LATER,
 	GET_WATCH_LATER_MOVIES,
 	DELETE_MOVE_FROM_WATCH_LATER,
+	GET_RANDOM_MOVIES,
 } from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
+
 export const moviesApi = createApi({
 	reducerPath: "moviesApi",
 	baseQuery: fetchBaseQuery({ baseUrl: `${BASE_URL}` }),
@@ -56,6 +58,9 @@ export const moviesApi = createApi({
 			},
 			invalidatesTags: ["watchLater"],
 		}),
+		getRandomMovies: builder.query({
+			query: () => GET_RANDOM_MOVIES(),
+		}),
 	}),
 });
 export const {
@@ -66,4 +71,5 @@ export const {
 	useAddMovieToWatchLaterMutation,
 	useGetWatchLaterMoviesQuery,
 	useDeleteMovieFromWatchLaterMutation,
+	useGetRandomMoviesQuery,
 } = moviesApi;
