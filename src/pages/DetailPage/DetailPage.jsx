@@ -71,6 +71,7 @@ const DetailPage = () => {
 						)}
 					</div>
 				</S.FlexRow>
+				<ReviewForm/>
 			</S.Container>
 		</>
 	);

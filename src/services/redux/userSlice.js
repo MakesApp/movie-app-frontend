@@ -3,7 +3,7 @@ import axios from "axios";
 export const intialUserState = null;
 export const fetchUser = createAsyncThunk("userSlice/fetchUser", async () => {
 	const response = await axios.get(
-		process.env.REACT_APP_BASE_URL + "api/auth/user",
+		process.env.REACT_APP_API_URL + "api/auth/user",
 		{
 			withCredentials: true,
 		}
@@ -13,10 +13,21 @@ export const fetchUser = createAsyncThunk("userSlice/fetchUser", async () => {
 
 const userSlice = createSlice({
 	name: "userSlice",
-	initialState: intialUserState,
+	initialState: null,
 	reducers: {
+		addToWatchLater: (state, action) => {
+			state.watchLater.push(action.payload);
+		},
+		removeFromWatchLater: (state, action) => {
+			state.watchLater = state.watchLater.filter(
+				(movieId) => movieId !== action.payload
+			);
+		},
+		clearList: (state) => {
+			return [];
+		},
 		setUser: (state, action) => {
-			return action.payload;
+			state = action.payload;
 		},
 	},
 	extraReducers: (builder) => {
@@ -27,5 +38,8 @@ const userSlice = createSlice({
 		builder.addCase(fetchUser.rejected, (state, action) => {});
 	},
 });
-export const { setUser } = userSlice.actions;
+
+export const { setUser, addToWatchLater, removeFromWatchLater, clearList } =
+	userSlice.actions;
+
 export default userSlice.reducer;
