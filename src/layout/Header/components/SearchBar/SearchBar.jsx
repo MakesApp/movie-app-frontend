@@ -41,10 +41,11 @@ const SearchBar = () => {
 
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
-		// setSearchSuggestions([]);
+		if(!searchValue)return;
 		setfetch(true);
 		navigate(`search/${searchValue}/page/1`);
-
+		setSearchValue('');
+		setSearchSuggestions([]);
 
 	};
 

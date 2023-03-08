@@ -28,7 +28,8 @@ export const moviesApi = createApi({
 		}),
 
 		getMovieBySearchTerm: builder.query({
-			query: (searchTerm) => GET_MOVIE_BY_SEARCH_TERM(searchTerm),
+			query: ({ searchTerm, page }) =>
+				GET_MOVIE_BY_SEARCH_TERM(searchTerm, page),
 			providesTags: ["Moviesapi"],
 		}),
 		getMovieDetail: builder.query({

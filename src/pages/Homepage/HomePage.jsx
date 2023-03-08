@@ -35,7 +35,7 @@ const HomePage = () => {
 
 	const handleAddToWatchLater = async(movieId) => {
 		if(!user) navigate(LOGIN);
-		if (!watchLaterList.find((id) => id === movieId.toString())) {
+		if (!watchLaterList?.find((id) => id === movieId.toString())) {
 			await addMovieToWatchLater({userId:user._id ,movieId:movieId.toString()});
 			dispatch(addToWatchLater(movieId.toString()));
 		}
@@ -86,7 +86,6 @@ const HomePage = () => {
 				<S.Img src='/img/logo.png' alt='' />
 				<br />
 			</S.HeadersContainer>
-
 			<S.ButtonsContainer>
 				<S.Button
 					isSelected={sortBy === "latest"}
