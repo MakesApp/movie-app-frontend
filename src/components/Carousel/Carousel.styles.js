@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 
 export const Image = styled.img`
-	height: 500px;
+	height: 400px;
 	aspect-ratio: 1/1;
 	width: 100%;
 `;
@@ -9,10 +9,30 @@ export const Image = styled.img`
 export const Slide = styled.div`
 	position: relative;
 `;
+
 export const Info = styled.div`
 	position: absolute;
-	z-index: 1;
-	bottom: 10%;
-	left: 5%;
+	width: 95%;
+	margin: 2%;
+	background-color: black;
+	opacity: 0.7;
+	height: 50%;
+	top: 40%;
+	border-radius: 1em;
 `;
-export const Name = styled.p``;
+export const ImageDetail = styled.p`
+	color: whitesmoke;
+	margin: 1% 0;
+	padding: 3%;
+	position: absolute;
+	top: 55%;
+`;
+export const Name = styled.h1`
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: gold;
+	margin: 1% 0;
+	padding: 3%;
+	position: absolute;
+	top: 45%;
+`;
