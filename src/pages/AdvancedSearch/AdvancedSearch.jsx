@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
+import MovieCard from "../../components/MovieCard/MovieCard";
 import MovieList from "../../components/MovieList/MovieList";
 import { MOVIES_PER_PAGE } from "../../components/Pagination/constants";
 import Pagination from "../../components/Pagination/Pagination";
@@ -10,10 +11,7 @@ import * as S from "./AdvancedSearch.style";
 export default function AdvancedSearch() {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const params = useParams();
-	const { page } = params;
 	const { search: locationQueries } = location;
-	const [isClicked, setIsClicked] = useState(false);
 	const [advancedFields, setAdvancedFields] = useState({
 		from: "",
 		to: "",
@@ -26,12 +24,17 @@ export default function AdvancedSearch() {
 
 	const handleSearch = () => {
 		const queryParams = new URLSearchParams(advancedFields).toString();
-		navigate(`/advancedSearch/page/1?${queryParams}`);
-		setIsClicked(true);
+		navigate(`/advancedSearch?${queryParams}`);
 	};
-	const { data: searchedMovies } = useGetAdvancedSearchQuery(locationQueries);
-
-	const movies = searchedMovies?.movieresult;
+	const handlePaginationClick = (event) => {
+		const queries = { ...advancedFields, page: event.selected + 1 };
+		const queryParams = new URLSearchParams(queries).toString();
+		navigate(`/advancedSearch?${queryParams}`);
+	};
+	const { data } = useGetAdvancedSearchQuery(locationQueries, {
+		skip: !locationQueries,
+	});
+	const { movies, totalPages } = data || {};
 	return (
 		<S.Container>
 			<AdvancedTitle></AdvancedTitle>
@@ -40,18 +43,15 @@ export default function AdvancedSearch() {
 			{movies && (
 				<>
 					<Pagination
-						totalPage={movies?.length}
-						pageNumber={page ?? "1"}
-						path={`/advancedSearch/page/${page}${locationQueries}`}
+						initialPage={locationQueries["page"]}
+						handleOnClick={handlePaginationClick}
+						itemsPerPage={totalPages}
 					/>
-					<MovieList
-						movies={
-							movies?.slice(
-								(+page - 1) * MOVIES_PER_PAGE,
-								+page * MOVIES_PER_PAGE - 1
-							) || []
-						}
-					/>
+					<MovieList>
+						{movies?.map((movie) => (
+							<MovieCard key={movie.id} movie={movie}></MovieCard>
+						))}
+					</MovieList>
 				</>
 			)}
 		</S.Container>
