@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useGetMovieDetailQuery } from "../../services/api/movieApi";
 import * as S from "./detailPage.style";
+import ReviewForm from "../../components/Reviews/Reviews";
 
 const DetailPage = () => {
 	const params = useParams();
@@ -70,6 +71,7 @@ const DetailPage = () => {
 						)}
 					</div>
 				</S.FlexRow>
+				<ReviewForm movieId={id} />
 			</S.Container>
 		</>
 	);
