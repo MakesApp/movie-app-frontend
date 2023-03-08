@@ -12,7 +12,10 @@ function Navbar() {
 				<S.LeftContainer>
 					<S.NavbarLinkContainer>
 						<S.NavbarLink to='/'> Home</S.NavbarLink>
-						<S.NavbarLink to='/AdvancedSearch'> Advanced Search</S.NavbarLink>
+						<S.NavbarLink to='/advancedSearch/page/1'>
+							{" "}
+							Advanced Search
+						</S.NavbarLink>
 						<S.NavbarLink to='/popular-actors'> Popular Actors</S.NavbarLink>
 						<S.OpenLinksButton
 							onClick={() => {
@@ -22,8 +25,12 @@ function Navbar() {
 					</S.NavbarLinkContainer>
 				</S.LeftContainer>
 				<S.RightContainer>
-					{!user&&<S.NavbarLink to='/login'>Login</S.NavbarLink>}		
-					{user&&<S.Logout href={process.env.REACT_APP_BASE_URL+ 'api/logout'}  >Logout</S.Logout>}		
+					{!user && <S.NavbarLink to='/login'>Login</S.NavbarLink>}
+					{user && (
+						<S.Logout href={process.env.REACT_APP_BASE_URL + "api/logout"}>
+							Logout
+						</S.Logout>
+					)}
 					{/* <S.NavbarLink to='/SignupPage'>SignUp</S.NavbarLink>  */}
 					{/* <S.Logo src={"https://www.pexels.com/@pixabay/"}></S.Logo> */}
 				</S.RightContainer>
@@ -31,7 +38,7 @@ function Navbar() {
 			{extendNavbar && (
 				<S.NavbarExtendedContainer>
 					<S.NavbarLinkExtended to='/'> Home</S.NavbarLinkExtended>
-					<S.NavbarLinkExtended to='/advanced-search'>
+					<S.NavbarLinkExtended to='/advancedSearch/page/1'>
 						Advanced Search
 					</S.NavbarLinkExtended>
 					<S.NavbarLinkExtended to='/popular-actors'>

@@ -13,7 +13,7 @@ const Pagination = ({ totalPage, pageNumber, path }) => {
 			{[...Array(Math.ceil(totalPage / MOVIES_PER_PAGE))].map((x, i) => (
 				<S.PageLink
 					key={i}
-					isselected={parseInt(pageNumber) - 1 === i?'true':'false'}
+					isselected={parseInt(pageNumber) - 1 === i ? "true" : "false"}
 					to={`${path}/${i + 1}`}
 				>
 					{i + 1}
@@ -24,7 +24,6 @@ const Pagination = ({ totalPage, pageNumber, path }) => {
 					className='fa-solid fa-angles-right'
 					hidden={parseInt(pageNumber) + 1 > Math.ceil(totalPage / 10)}
 				></S.Icon>
-
 			</Link>
 		</S.Container>
 	);

@@ -33,6 +33,7 @@ export const moviesApi = createApi({
 		}),
 		getAdvancedSearch: builder.query({
 			query: (movieProps) => GET_ADVANCED_SEARCH(movieProps),
+			providesTags: "Moviesapi",
 		}),
 	}),
 });
