@@ -12,21 +12,21 @@ import { GET_TOP_MOVIES } from "./constants";
 export const moviesApi = createApi({
 	reducerPath: "moviesApi",
 	baseQuery: fetchBaseQuery({ baseUrl: `${BASE_URL}` }),
-	tagTypes: "Moviesapi",
+	tagTypes: ["Moviesapi", 'ComedianApi'],
 	endpoints: (builder) => ({
 		getLatestMovies: builder.query({
 			query: () => GET_LATEST_MOVIES(),
-			providesTags: "Moviesapi",
+			providesTags: ["Moviesapi"],
 		}),
 
 		getTopMovies: builder.query({
 			query: () => GET_TOP_MOVIES(),
-			providesTags: "Moviesapi",
+			providesTags: ["Moviesapi"],
 		}),
 
 		getMovieBySearchTerm: builder.query({
 			query: (searchTerm) => GET_MOVIE_BY_SEARCH_TERM(searchTerm),
-			providesTags: "Moviesapi",
+			providesTags: ["Moviesapi"],
 		}),
 		getMovieDetail: builder.query({
 			query: (id) => GET_DETAILED_MOVIE(id),
@@ -34,6 +34,10 @@ export const moviesApi = createApi({
 		getRandomMovies: builder.query({
 			query: () => GET_RANDOM_MOVIES(),
 		}),
+		getComedians: builder.query({
+			query: () => GET_COMEDIANS(),
+			providesTags: ["ComedianApi"]
+		})
 	}),
 });
 export const {
@@ -42,4 +46,5 @@ export const {
 	useGetMovieBySearchTermQuery,
 	useGetMovieDetailQuery,
 	useGetRandomMoviesQuery,
+	useGetComediansQuery
 } = moviesApi;
