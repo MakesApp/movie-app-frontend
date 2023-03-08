@@ -2,23 +2,37 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	align-items: center;
-	width: 300px;
+	width: 50%;
 `;
-export const Title = styled.h1`
-	font-size: 18px;
-	color: var(--background-color);
-`;
+
 export const Details = styled.div`
 	display: flex;
+	flex-direction: column;
+	text-align: left;
+	justify-content: space-between;
+	margin-left: 2em;
+	height: 100%;
+`;
+export const Title = styled.div`
+ display: flex;
+ width: 100%;
+ justify-content: flex-start;
+ 
 `;
 export const Rank = styled.span`
 	font-size: 14px;
 	color: var(--background-color);
+	margin-right: 2%;
+`;
+export const Name = styled.a`
+	font-size: 14px;
+	color: var(--background-color);
 `;
 export const Image = styled.img`
-	width: 50%;
+	width: 10rem;
+	height:14rem;
 	display: block;
 	border-radius: 1rem;
 	object-fit: cover;
@@ -31,14 +45,14 @@ export const Image = styled.img`
 		border: 2px gold solid;
 		box-shadow: gold 0px 1px 2px 0px, gold 0px 1px 3px 1px;
 	}
+	margin: 1rem;
 `;
-export const Name = styled.a`
-	display: flex;
-`;
+
 export const Role = styled.h3`
 	font-size: 14px;
 	color: var(--background-color);
 `;
 export const Description = styled.p`
-	display: flex;
+	font-size: 14px;
+	color: var(--background-color);
 `;

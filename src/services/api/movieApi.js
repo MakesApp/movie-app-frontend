@@ -9,6 +9,7 @@ import {
 	GET_WATCH_LATER_MOVIES,
 	DELETE_MOVE_FROM_WATCH_LATER,
 	GET_RANDOM_MOVIES,
+	GET_COMEDIANS,
 } from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
 
