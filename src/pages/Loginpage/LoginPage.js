@@ -63,7 +63,7 @@ const LoginPage = () => {
 				/>
 				<S.LoginButton type='submit'>Login</S.LoginButton>
 				<S.SignInButton
-					href={process.env.REACT_APP_BASE_URL + "api/auth/google"}
+					href={process.env.REACT_APP_API_URL + "api/auth/google"}
 				>
 					<S.GoogleIcon src='https://cdn.iconscout.com/icon/free/png-256/google-470-675827.png' />
 					Sign in with Google

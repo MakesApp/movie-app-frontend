@@ -5,8 +5,11 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	padding: 5px;
+<<<<<<< HEAD
 	position: fixed;
 	right: 0;
+=======
+>>>>>>> 0248eec6348603f1317c4b8b16301b0684efc8fc
 	bottom: 0;
 `;
 

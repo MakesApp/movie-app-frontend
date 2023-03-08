@@ -6,7 +6,6 @@ import {
 	GET_MOVIE_BY_SEARCH_TERM,
 	GET_DETAILED_MOVIE,
 	GET_ADVANCED_SEARCH,
-	GET_ALL_MOVIES,
 } from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
 export const moviesApi = createApi({
