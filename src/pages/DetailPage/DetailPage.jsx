@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGetMovieDetailQuery } from "../../services/api/movieSlice";
+import { useGetMovieDetailQuery } from "../../services/api/movieApi";
 import * as S from "./detailPage.style";
 import ReviewForm from "../../components/Reviews/Reviews";
 
@@ -71,7 +71,7 @@ const DetailPage = () => {
 						)}
 					</div>
 				</S.FlexRow>
-				<ReviewForm/>
+				<ReviewForm movieId={id}/>
 			</S.Container>
 		</>
 	);

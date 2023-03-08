@@ -14,10 +14,14 @@ const movies = [
 				userId: "4",
 				content: "hello hello",
 			},
+			{
+				userId: "2",
+				content: "nice one",
+			},
 		],
 	},
 ];
-const ReviewForm = () => {
+const ReviewForm = ({ movieId }) => {
 	const [reviews, setReviews] = useState(movies);
 	const [rating, setRating] = useState(0);
 	const [content, setContent] = useState("");
@@ -55,6 +59,29 @@ const ReviewForm = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+
+		// if (!hasSubmittedReview) {
+		// 	const newReview = {
+		// 		userId: userId,
+		// 		content: content,
+		// 	};
+		// 	try {
+		// 		const response = await axios.post(
+		// 			`/api/movies/${movieId}/reviews`,
+		// 			newReview
+		// 		);
+		// 		const updatedMovie = response.data;
+		// 		const updatedMovies = movies.map((movie) =>
+		// 			movie.movieId === updatedMovie.movieId ? updatedMovie : movie
+		// 		);
+		// 		setReviews(updatedMovies);
+		// 		setHasSubmittedReview(true);
+		// 		setRating(0);
+		// 		setContent("");
+		// 	} catch (error) {
+		// 		console.log(error);
+		// 	}
+		// }
 	};
 
 	const handleEdit = (reviewId) => {};
