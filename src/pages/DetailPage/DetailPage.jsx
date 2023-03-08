@@ -71,7 +71,7 @@ const DetailPage = () => {
 						)}
 					</div>
 				</S.FlexRow>
-				<ReviewForm movieId={id}/>
+				<ReviewForm movieId={id} />
 			</S.Container>
 		</>
 	);

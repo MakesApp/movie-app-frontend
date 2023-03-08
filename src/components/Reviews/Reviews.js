@@ -1,32 +1,18 @@
 import { useState } from "react";
 import * as S from "./Reviews.styles";
 import styled from "styled-components";
-const movies = [
-	{
-		movieId: "1",
-		ratings: {},
-		reviews: [
-			{
-				userId: "2",
-				content: "bla bla",
-			},
-			{
-				userId: "4",
-				content: "hello hello",
-			},
-			{
-				userId: "2",
-				content: "nice one",
-			},
-		],
-	},
-];
-const ReviewForm = ({ movieId }) => {
-	const [reviews, setReviews] = useState(movies);
+import { useAddMovieRatingMutation } from "../../services/api/movieApi";
+
+const ReviewForm = () => {
+	const [reviews, setReviews] = useState([]);
 	const [rating, setRating] = useState(0);
 	const [content, setContent] = useState("");
 	const [hoveredStar, setHoveredStar] = useState(0);
 	const [isVisible, setIsVisible] = useState(false);
+	const [movieId, setMovieId] = useState(null);
+	const [userId, setUserId] = useState(null);
+
+	const [addMovieRating] = useAddMovieRatingMutation();
 
 	const StarsContainer = styled.div`
 		display: flex;
@@ -57,34 +43,29 @@ const ReviewForm = ({ movieId }) => {
 		setIsVisible(!isVisible);
 	};
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
-		// if (!hasSubmittedReview) {
-		// 	const newReview = {
-		// 		userId: userId,
-		// 		content: content,
-		// 	};
-		// 	try {
-		// 		const response = await axios.post(
-		// 			`/api/movies/${movieId}/reviews`,
-		// 			newReview
-		// 		);
-		// 		const updatedMovie = response.data;
-		// 		const updatedMovies = movies.map((movie) =>
-		// 			movie.movieId === updatedMovie.movieId ? updatedMovie : movie
-		// 		);
-		// 		setReviews(updatedMovies);
-		// 		setHasSubmittedReview(true);
-		// 		setRating(0);
-		// 		setContent("");
-		// 	} catch (error) {
-		// 		console.log(error);
-		// 	}
-		// }
+		const existingReview = reviews.find(
+			(review) => review.movieId === movieId && review.userId === userId
+		);
+
+		if (existingReview) {
+			alert("You have already submitted a review for this movie");
+			return;
+		}
+
+		try {
+			await addMovieRating({ movieId, userId, rating });
+			setReviews([...reviews, { movieId, reviews: [{ content }] }]);
+			setRating(0);
+			setContent("");
+		} catch (error) {
+			alert("Failed to add movie rating", error);
+		}
 	};
 
-	const handleEdit = (reviewId) => {};
+	const handleEdit = () => {};
 
 	return (
 		<S.Container>
@@ -96,9 +77,7 @@ const ReviewForm = ({ movieId }) => {
 							<S.DivComment key={review.id}>
 								<S.Card>
 									{review.content}
-									<S.EditButton onClick={() => handleEdit(review.id)}>
-										Edit
-									</S.EditButton>
+									<S.EditButton onClick={() => handleEdit()}>Edit</S.EditButton>
 								</S.Card>
 							</S.DivComment>
 						))}

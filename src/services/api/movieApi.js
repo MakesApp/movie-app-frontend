@@ -9,6 +9,7 @@ import {
 	GET_WATCH_LATER_MOVIES,
 	DELETE_MOVE_FROM_WATCH_LATER,
 	GET_RANDOM_MOVIES,
+	ADD_MOVIE_REVIEWS,
 } from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
 
@@ -62,6 +63,15 @@ export const moviesApi = createApi({
 		getRandomMovies: builder.query({
 			query: () => GET_RANDOM_MOVIES(),
 		}),
+		addMovieRating: builder.mutation({
+			query: ({ movieId, userId, rating }) => {
+				return {
+					url: ADD_MOVIE_REVIEWS(movieId, userId),
+					method: "POST",
+					body: { rating },
+				};
+			},
+		}),
 	}),
 });
 export const {
@@ -73,4 +83,5 @@ export const {
 	useGetWatchLaterMoviesQuery,
 	useDeleteMovieFromWatchLaterMutation,
 	useGetRandomMoviesQuery,
+	useAddMovieRatingMutation,
 } = moviesApi;

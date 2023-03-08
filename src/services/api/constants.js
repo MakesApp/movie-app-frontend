@@ -10,3 +10,4 @@ export const GET_WATCH_LATER_MOVIES = (userId) =>
 export const DELETE_MOVE_FROM_WATCH_LATER = (userId) =>
 	`api/user/${userId}/movies/watchLater/delete`;
 export const GET_RANDOM_MOVIES = () => `api/movies/randomMovies`;
+export const ADD_MOVIE_REVIEWS = (movieId,userId) => `api/${movieId}/user/${userId}/rate`;
