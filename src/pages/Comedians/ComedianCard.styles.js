@@ -4,7 +4,9 @@ export const Container = styled.div`
 	display: flex;
 	/* flex-direction: column; */
 	align-items: center;
-	width: 50%;
+	width: 40%;
+	background-color: #010408;
+	margin: 0.2rem 0;
 `;
 
 export const Details = styled.div`
@@ -22,12 +24,12 @@ export const Title = styled.div`
  
 `;
 export const Rank = styled.span`
-	font-size: 14px;
+	font-size: 1.5rem;
 	color: var(--background-color);
 	margin-right: 2%;
 `;
 export const Name = styled.a`
-	font-size: 14px;
+	font-size: 1.5rem;
 	color: var(--background-color);
 `;
 export const Image = styled.img`
@@ -49,10 +51,11 @@ export const Image = styled.img`
 `;
 
 export const Role = styled.h3`
-	font-size: 14px;
+	font-size: 1rem;
 	color: var(--background-color);
+	padding: 1rem 0;
 `;
 export const Description = styled.p`
-	font-size: 14px;
+	font-size: 1rem;
 	color: var(--background-color);
 `;

@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-    margin-top: 2em;
-	font-size: 24px;
+    margin: 2em 0;
+	font-size: 2rem;
 	color: var(--background-color);
 `;
