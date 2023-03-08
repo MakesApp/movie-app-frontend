@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import MovieList from "../../components/MovieList/MovieList";
-import { MOVIES_PER_PAGE } from "../../components/Pagination/constants";
 import Pagination from "../../components/Pagination/Pagination";
 import { useGetAdvancedSearchQuery } from "../../services/api/movieSlice";
 import AdvancedFields from "../AdvancedSearch/components/AdvancedFields/AdvancedFields";
@@ -11,6 +11,7 @@ import * as S from "./AdvancedSearch.style";
 export default function AdvancedSearch() {
 	const navigate = useNavigate();
 	const location = useLocation();
+	const [isClicked, setIsClicked] = useState(false);
 	const { search: locationQueries } = location;
 	const [advancedFields, setAdvancedFields] = useState({
 		from: "",
@@ -21,9 +22,18 @@ export default function AdvancedSearch() {
 		genre: "",
 		page: "",
 	});
+	useEffect(() => {
+		const obj = {};
+		const urlSearchParams = new URLSearchParams(locationQueries);
+		Object.entries(Object.fromEntries(urlSearchParams.entries())).map(
+			([key, value]) => (obj[key] = value)
+		);
+		setAdvancedFields(obj);
+	}, [location]);
 
 	const handleSearch = () => {
 		const queryParams = new URLSearchParams(advancedFields).toString();
+		setIsClicked(true);
 		navigate(`/advancedSearch?${queryParams}`);
 	};
 	const handlePaginationClick = (event) => {
@@ -31,10 +41,16 @@ export default function AdvancedSearch() {
 		const queryParams = new URLSearchParams(queries).toString();
 		navigate(`/advancedSearch?${queryParams}`);
 	};
+	const areQueriesEmpty = Object.entries(advancedFields)
+		.filter(([key, value]) => key !== "page")
+		.every(([key, value]) => !value);
+
 	const { data } = useGetAdvancedSearchQuery(locationQueries, {
-		skip: !locationQueries,
+		skip: areQueriesEmpty,
 	});
 	const { movies, totalPages } = data || {};
+	const urlArr = locationQueries.split("=");
+	const page = urlArr[urlArr.length - 1];
 	return (
 		<S.Container>
 			<AdvancedTitle></AdvancedTitle>
@@ -43,7 +59,7 @@ export default function AdvancedSearch() {
 			{movies && (
 				<>
 					<Pagination
-						initialPage={locationQueries["page"]}
+						initialPage={page + 1}
 						handleOnClick={handlePaginationClick}
 						itemsPerPage={totalPages}
 					/>
