@@ -14,7 +14,9 @@ function App() {
 	return (
 		<S.Container>
 			<Header />
-			<RouteConfig />
+			<S.Content>
+				<RouteConfig />
+			</S.Content>
 			<Footer />
 		</S.Container>
 	);

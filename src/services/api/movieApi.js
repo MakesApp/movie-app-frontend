@@ -5,6 +5,9 @@ import {
 	GET_LATEST_MOVIES,
 	GET_MOVIE_BY_SEARCH_TERM,
 	GET_DETAILED_MOVIE,
+	ADD_MOVE_TO_WATCH_LATER,
+	GET_WATCH_LATER_MOVIES,
+	DELETE_MOVE_FROM_WATCH_LATER,
 	GET_RANDOM_MOVIES,
 } from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
@@ -12,7 +15,7 @@ import { GET_TOP_MOVIES } from "./constants";
 export const moviesApi = createApi({
 	reducerPath: "moviesApi",
 	baseQuery: fetchBaseQuery({ baseUrl: `${BASE_URL}` }),
-	tagTypes: ["Moviesapi", 'ComedianApi'],
+	tagTypes: ["Moviesapi", "watchLater"],
 	endpoints: (builder) => ({
 		getLatestMovies: builder.query({
 			query: () => GET_LATEST_MOVIES(),
@@ -25,19 +28,44 @@ export const moviesApi = createApi({
 		}),
 
 		getMovieBySearchTerm: builder.query({
-			query: (searchTerm) => GET_MOVIE_BY_SEARCH_TERM(searchTerm),
+			query: ({ searchTerm, page }) =>
+				GET_MOVIE_BY_SEARCH_TERM(searchTerm, page),
 			providesTags: ["Moviesapi"],
 		}),
 		getMovieDetail: builder.query({
 			query: (id) => GET_DETAILED_MOVIE(id),
 		}),
+		addMovieToWatchLater: builder.mutation({
+			query: ({ userId, movieId }) => {
+				return {
+					url: ADD_MOVE_TO_WATCH_LATER(userId),
+					method: "POST",
+					body: { movieId },
+				};
+			},
+			invalidatesTags: ["watchLater"],
+		}),
+		getWatchLaterMovies: builder.query({
+			query: (userId) => GET_WATCH_LATER_MOVIES(userId),
+			providesTags: ["watchLater"],
+		}),
+		deleteMovieFromWatchLater: builder.mutation({
+			query: ({ userId, movieId }) => {
+				return {
+					url: DELETE_MOVE_FROM_WATCH_LATER(userId),
+					method: "DELETE",
+					body: { movieId },
+				};
+			},
+			invalidatesTags: ["watchLater"],
+		}),
 		getRandomMovies: builder.query({
 			query: () => GET_RANDOM_MOVIES(),
 		}),
+
 		getComedians: builder.query({
 			query: () => GET_COMEDIANS(),
-			providesTags: ["ComedianApi"]
-		})
+		}),
 	}),
 });
 export const {
@@ -45,6 +73,9 @@ export const {
 	useGetTopMoviesQuery,
 	useGetMovieBySearchTermQuery,
 	useGetMovieDetailQuery,
+	useAddMovieToWatchLaterMutation,
+	useGetWatchLaterMoviesQuery,
+	useDeleteMovieFromWatchLaterMutation,
 	useGetRandomMoviesQuery,
 	useGetComediansQuery
 } = moviesApi;

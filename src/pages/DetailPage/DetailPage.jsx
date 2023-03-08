@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGetMovieDetailQuery } from "../../services/api/movieSlice";
+import { useGetMovieDetailQuery } from "../../services/api/movieApi";
 import * as S from "./detailPage.style";
 
 const DetailPage = () => {

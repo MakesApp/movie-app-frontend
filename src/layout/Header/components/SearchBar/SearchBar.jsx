@@ -4,7 +4,7 @@ import {
 	useGetLatestMoviesQuery,
 	useGetMovieBySearchTermQuery,
 	useGetTopMoviesQuery,
-} from "../../../../services/api/movieSlice";
+} from "../../../../services/api/movieApi";
 import * as S from "./SearchBar.styles";
 const SearchBar = () => {
 	const navigate=useNavigate();
@@ -41,10 +41,11 @@ const SearchBar = () => {
 
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
-		// setSearchSuggestions([]);
+		if(!searchValue)return;
 		setfetch(true);
 		navigate(`search/${searchValue}/page/1`);
-
+		setSearchValue('');
+		setSearchSuggestions([]);
 
 	};
 

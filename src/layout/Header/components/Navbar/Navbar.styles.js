@@ -3,29 +3,19 @@ import { Link } from "react-router-dom";
 
 export const NavbarContainer = styled.nav`
 	width: 100%;
-	padding: 0 5%;
-	height: ${(props) => (props.extendNavbar ? "100vh" : "80px")};
 	background-color: #181823;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	@media (min-width: 700px) {
-		height: 80px;
-	}
+	padding: 1rem;
 `;
 
 export const LeftContainer = styled.div`
-	flex: 70%;
 	display: flex;
-	align-items: center;
-	padding-left: 5%;
 `;
 
 export const RightContainer = styled.div`
-	flex: 30%;
 	display: flex;
-	justify-content: flex-end;
-	padding-right: 50px;
 `;
 
 export const NavbarInnerContainer = styled.div`
@@ -36,6 +26,7 @@ export const NavbarInnerContainer = styled.div`
 
 export const NavbarLinkContainer = styled.div`
 	display: flex;
+	align-items: center;
 `;
 
 export const NavbarLink = styled(Link)`
@@ -64,32 +55,13 @@ export const NavbarLinkExtended = styled(Link)`
 	font-size: x-large;
 	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: none;
-	margin: 10px;
-`;
-
-export const Logo = styled.img`
-	margin: 10px;
-	max-width: 180px;
-	height: auto;
-`;
-
-export const OpenLinksButton = styled.button`
-	width: 70px;
-	height: 50px;
-	background: none;
-	border: none;
-	color: #ec255a;
-	font-size: 45px;
-	cursor: pointer;
-	@media (min-width: 700px) {
-		display: none;
-	}
 `;
 
 export const NavbarExtendedContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
 	@media (min-width: 700px) {
 		display: none;
 	}
