@@ -11,8 +11,8 @@ function Navbar() {
 			<S.LeftContainer>
 				<S.NavbarLinkContainer>
 					<S.NavbarLink to='/'> Home</S.NavbarLink>
+					<S.NavbarLink to='/top-comedians'>Top 10 Comedians</S.NavbarLink>
 					<S.NavbarLink to={ADVANCEDSEARCH}>Advanced Search</S.NavbarLink>
-					<S.NavbarLink to='/popular-actors'> Popular Actors</S.NavbarLink>
 					<S.NavbarLink to='/watchlater'> Watch Later</S.NavbarLink>
 				</S.NavbarLinkContainer>
 			</S.LeftContainer>

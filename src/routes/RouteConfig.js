@@ -4,18 +4,11 @@ import HomePage from "../pages/Homepage/HomePage";
 import LoginPage from "../pages/Loginpage/LoginPage";
 import SearchResults from "../pages/Searchresults/SearchResults";
 import SignupPage from "../pages/SignupPage/SignUpPage";
+import { HOME, SEARCH, LOGIN, SIGNUP, DETAIL, WATCH, COMEDIANS,ADVANCEDSEARCH } from "./constants";
 import WatchLater from "../pages/WatchLater/WatchLater";
 import ProtectedRoute from "./ProtectedRoute";
 import { useSelector } from "react-redux";
-import {
-	HOME,
-	SEARCH,
-	LOGIN,
-	SIGNUP,
-	DETAIL,
-	ADVANCEDSEARCH,
-	WATCH,
-} from "./constants";
+import ComediansList from "../pages/Comedians/ComediansList";
 import AdvancedSearch from "../pages/AdvancedSearch/AdvancedSearch";
 const RouteConfig = () => {
 	const user = useSelector((state) => state.userSlice);
@@ -29,6 +22,7 @@ const RouteConfig = () => {
 			<Route path={HOME} element={<HomePage />} />
 			<Route path={SEARCH} element={<SearchResults />}></Route>
 			<Route path={DETAIL} element={<DetailPage />} />
+			<Route path={COMEDIANS} element={<ComediansList />} />
 			<Route path={ADVANCEDSEARCH} element={<AdvancedSearch />} />
 
 			<Route
