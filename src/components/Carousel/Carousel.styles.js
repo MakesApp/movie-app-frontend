@@ -8,6 +8,7 @@ export const Image = styled.img`
 
 export const Slide = styled.div`
 	position: relative;
+	cursor: pointer;
 `;
 export const Info = styled.div`
 	position: absolute;

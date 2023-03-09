@@ -1,10 +1,16 @@
 
+import { useNavigate } from "react-router-dom";
 import * as S from "./MovieCard.styles";
 
 const MovieCard = ({ movie ,children}) => {
 
+	const navigate=useNavigate();
+	const handleOnClick=()=>{
+		navigate(`/movies/details/${movie.id}`);
+	};
+
 	return (
-		<S.Container >
+		<S.Container onClick={handleOnClick}>
 			<S.PosterContainer>
 				<S.Poster src={movie?.poster} alt='movie image' />
 				{<S.Rating>{movie?.rating || "7.5"}</S.Rating>}
