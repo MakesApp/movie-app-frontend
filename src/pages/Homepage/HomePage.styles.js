@@ -42,24 +42,29 @@ export const HeadersContainer = styled.div`
 export const AddButton = styled.button`
 	position: absolute;
 	bottom: 10%;
-	left: -5%;
-	background-color: var(--primary-color);
+	left: -7%;
+	background-color: var(--secondary-color);
 	border-radius: 50%;
 	border-color: transparent;
-	height: 35px;
-	width: 35px;
+	border: 2px whitesmoke solid;
+	height: 30px;
+	width: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: var(--white-color);
 	cursor: pointer;
+	&:hover {
+		border: 2px gold solid;
+		background-color: var(--primary-color);
+	}
 `;
 export const CarouselWrapper = styled.div`
 	display: flex;
-	margin: 0 auto;
+	margin: 1rem auto;
 	justify-content: center;
 	align-items: center;
-	width: 650px;
+	width: 70vw;
 	@media screen and (max-width: 460px) {
 		width: 100%;
 		margin: 0;

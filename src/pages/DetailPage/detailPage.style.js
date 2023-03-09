@@ -8,11 +8,11 @@ export const Container = styled.div`
 	padding: 20px;
 	max-width: 1200px;
 	@media screen and (max-width: 1200px) {
-    padding: 0 10vw;
-  }
-  @media screen and (max-width: 1000px) {
-    padding: 0;
-  
+		padding: 0 10vw;
+	}
+	@media screen and (max-width: 1000px) {
+		padding: 0;
+	}
 `;
 
 export const FlexRow = styled.div`

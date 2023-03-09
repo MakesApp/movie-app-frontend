@@ -88,7 +88,9 @@ const SignupPage = () => {
 				/>
 
 				<S.SignupButton type='submit'>Sign Up</S.SignupButton>
-				<Link to={LOGIN}>Login</Link>
+				<Link style={{ margin: "2% 0" }} to={LOGIN}>
+					Login
+				</Link>
 
 				{Object.keys(errors).map(
 					(error) =>

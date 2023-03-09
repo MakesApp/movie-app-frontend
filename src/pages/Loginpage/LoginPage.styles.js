@@ -3,10 +3,7 @@ import styled from "styled-components/macro";
 export const LoginContainer = styled.div`
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	height: 80vh;
-	width: 100%;
-	margin: 0 auto;
+	margin: 2% auto;
 `;
 
 export const LoginForm = styled.form`
@@ -14,17 +11,15 @@ export const LoginForm = styled.form`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 600px;
-	height: 500px;
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0);
 `;
 
 export const LoginTitle = styled.h1`
-	font-size: 36px;
+	font-size: 2rem;
 	font-weight: 500;
-	margin-bottom: 20px;
+	margin: 20px auto;
 	color: #333;
 `;
 export const LoginLabel = styled.label`
@@ -37,7 +32,7 @@ export const LoginInput = styled.input`
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	margin-bottom: 10px;
-	font-size: 26px;
+	font-size: 1rem;
 `;
 
 export const LoginButton = styled.button`
@@ -46,7 +41,7 @@ export const LoginButton = styled.button`
 	border: none;
 	padding: 10px 20px;
 	border-radius: 4px;
-	font-size: 26px;
+	font-size: 1rem;
 	cursor: pointer;
 
 	&:hover {
@@ -59,13 +54,13 @@ export const SignInButton = styled.a`
 	align-items: center;
 	justify-content: center;
 	height: 40px;
-	background-color: #fff;
-	border: 2px solid #007bff;
+	background-color: lightgray;
+	padding: 1% 7%;
+	/* background-color: #fff; */
 	text-decoration: none;
-	border-radius: 2px;
+	border-radius: 2rem;
 	color: #007bff;
-	font-size: 22px;
-	font-weight: bold;
+	font-size: 1rem;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 	&:hover {
@@ -88,7 +83,8 @@ export const LoginErrorMessage = styled.div`
 `;
 
 export const ParaSign = styled.p`
-	margin-top: 30px;
+	margin-top: 20px;
+	padding: 5%;
 `;
 
 export const ErrorMessage = styled.p`

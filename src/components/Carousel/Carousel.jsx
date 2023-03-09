@@ -17,30 +17,31 @@ const Carousel = ({data}) => {
 		slidesToScroll: 1,
 		initialSlide: 0,
 		infinite: true,
-		autoplaySpeed: 2000
-
-
-
+		autoplaySpeed: 3000,
 	};
 	return (
-		<Slider className='slick-slider'  style={{
-			padding: 0, background: '#000', width: '100%', maxHeight: '500px',
-		}}
-		{...settings}>
-			{data?.map(movie => (
+		<Slider
+			className='slick-slider'
+			style={{
+				padding: 0,
+				width: "100%",
+				maxHeight: "500px",
+			}}
+			{...settings}
+		>
+			{data?.map((movie) => (
 				<S.Slide className='slide' key={movie.id} onClick={
 					()=>{
 						navigate(`/movies/details/${movie.id}`);
 					}
 				}>
-					<S.Image src={movie?.poster} alt={movie?.name} />
-					<S.Info>
-						 <S.Name>{movie?.name}</S.Name>
-						<p>{movie.description}</p> 
-					</S.Info>
+					<S.Image src={movie?.poster||movie?.backdrop_path} alt={movie?.name} />
+					<S.Info></S.Info>
+					<S.Name>{movie?.name}</S.Name>
+					<S.ImageDetail>{movie.description}</S.ImageDetail>
 				</S.Slide>
 			))}
-		</Slider>	
+		</Slider>
 	);
 };
 
