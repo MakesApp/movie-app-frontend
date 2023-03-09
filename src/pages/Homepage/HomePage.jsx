@@ -11,20 +11,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWatchLater } from "../../services/redux/userSlice";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LOGIN } from "../../routes/constants";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import Spinner from "../../components/Spinner/Spinner";
 import Carousel from "../../components/Carousel/Carousel";
 
-
 const HomePage = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const user = useSelector((state) => state.userSlice);
-	const watchLaterList=user?.watchLater;
-	
-	const [addMovieToWatchLater]=useAddMovieToWatchLaterMutation(user?.id);
+	const watchLaterList = user?.watchLater;
+
+	const [addMovieToWatchLater] = useAddMovieToWatchLaterMutation(user?.id);
 
 	const { data: latestMovies, isFetching: latestFetching } =
 		useGetLatestMoviesQuery();
@@ -33,54 +32,50 @@ const HomePage = () => {
 	const { data: topMovies, isFetching: topFetching } = useGetTopMoviesQuery();
 	const [sortBy, setSortBy] = useState("latest");
 
-	const handleAddToWatchLater = async(movieId) => {
-		if(!user) navigate(LOGIN);
+	const handleAddToWatchLater = async (movieId) => {
+		if (!user) navigate(LOGIN);
 		if (!watchLaterList?.find((id) => id === movieId.toString())) {
-			await addMovieToWatchLater({userId:user._id ,movieId:movieId.toString()});
+			await addMovieToWatchLater({
+				userId: user._id,
+				movieId: movieId.toString(),
+			});
 			dispatch(addToWatchLater(movieId.toString()));
 		}
 	};
 
-	const renderMovies=()=>{
-		const movies=sortBy === "latest" ? latestMovies:topMovies;
-		const isMovieInWatchLater=(movieId)=>watchLaterList?.find(m=>m===movieId.toString());
+	const renderMovies = () => {
+		const movies = sortBy === "latest" ? latestMovies : topMovies;
+		const isMovieInWatchLater = (movieId) =>
+			watchLaterList?.find((m) => m === movieId.toString());
 		return (
-			<MovieList >
-				{
-					movies?.map(movie=>{
-						return 	<MovieCard
-							key={movie.id}
-							movie={movie}
-						>
+			<MovieList>
+				{movies?.map((movie) => {
+					return (
+						<MovieCard key={movie.id} movie={movie}>
 							{
-								<S.AddButton
-									// disabled={isAddedToWatchLater}
-									onClick={() => handleAddToWatchLater(movie.id)}
-								>
+								<S.AddButton onClick={() => handleAddToWatchLater(movie.id)}>
 									<FontAwesomeIcon
-										icon={isMovieInWatchLater(movie.id)? faCheck:faPlus}
+										icon={isMovieInWatchLater(movie.id) ? faCheck : faPlus}
 										size='lg'
+										color={isMovieInWatchLater(movie.id) ? "yellow" : "white"}
 									/>
 								</S.AddButton>
-						
 							}
-						</MovieCard>;
-					})
-				}
-		
-			
+						</MovieCard>
+					);
+				})}
 			</MovieList>
 		);
 	};
 	const handleOnClick = (value) => {
 		setSortBy(value);
 	};
-	const isFetching = latestFetching || topFetching||randomFetching;
+	const isFetching = latestFetching || topFetching || randomFetching;
 
 	return (
-		<S.Container >
+		<S.Container>
 			<S.CarouselWrapper>
-				<Carousel data={randomMovies}/>
+				<Carousel data={randomMovies} />
 			</S.CarouselWrapper>
 			<S.HeadersContainer>
 				<S.Img src='/img/logo.png' alt='' />

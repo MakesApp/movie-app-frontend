@@ -5,12 +5,13 @@ export const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	position: relative;
-	width: 300px;
+	width: 13.5rem;
 `;
 export const PosterContainer = styled.div`
 	position: relative;
 `;
 export const Poster = styled.img`
+	height: 350px;
 	width: 100%;
 	display: block;
 	border-radius: 1rem;
@@ -28,7 +29,7 @@ export const Rating = styled.span`
 	position: absolute;
 	bottom: 10%;
 	top: 0.5%;
-	left: 30%;
+	left: 15%;
 	background-color: var(--white-color);
 	border-radius: 0 0 50% 50%;
 	height: 35px;
@@ -48,10 +49,13 @@ export const TitleContainer = styled.div`
 	align-items: center;
 	margin: 1% 0;
 `;
-export const Title = styled.h2`
+export const Title = styled.label`
 	font-size: 14px;
 	color: var(--background-color);
 	padding-top: 1%;
+	width: 200px;
+	text-align: center;
+	overflow: hidden;
 `;
 export const Year = styled.span`
 	font-size: 14px;
