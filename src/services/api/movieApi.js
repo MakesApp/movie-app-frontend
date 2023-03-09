@@ -10,6 +10,7 @@ import {
 	DELETE_MOVE_FROM_WATCH_LATER,
 	GET_RANDOM_MOVIES,
 	GET_COMEDIANS,
+	GET_ADVANCED_SEARCH,
 } from "./constants";
 import { GET_TOP_MOVIES } from "./constants";
 
@@ -67,8 +68,13 @@ export const moviesApi = createApi({
 		getComedians: builder.query({
 			query: () => GET_COMEDIANS(),
 		}),
+		getAdvancedSearch: builder.query({
+			query: (queries) => GET_ADVANCED_SEARCH(queries),
+			providesTags: ["Moviesapi"],
+		}),
 	}),
 });
+
 export const {
 	useGetLatestMoviesQuery,
 	useGetTopMoviesQuery,
@@ -78,5 +84,6 @@ export const {
 	useGetWatchLaterMoviesQuery,
 	useDeleteMovieFromWatchLaterMutation,
 	useGetRandomMoviesQuery,
-	useGetComediansQuery
+	useGetComediansQuery,
+	useGetAdvancedSearchQuery
 } = moviesApi;

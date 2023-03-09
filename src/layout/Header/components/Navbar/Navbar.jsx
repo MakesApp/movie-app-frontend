@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import * as S from "./Navbar.styles";
 import SearchBar from "../SearchBar/SearchBar";
+import { ADVANCEDSEARCH } from "../../../../routes/constants";
 function Navbar() {
 	const user = useSelector((state) => state.userSlice);
 
@@ -10,8 +11,8 @@ function Navbar() {
 			<S.LeftContainer>
 				<S.NavbarLinkContainer>
 					<S.NavbarLink to='/'> Home</S.NavbarLink>
-					<S.NavbarLink to='/AdvancedSearch'> Advanced Search</S.NavbarLink>
 					<S.NavbarLink to='/top-comedians'>Top 10 Comedians</S.NavbarLink>
+					<S.NavbarLink to={ADVANCEDSEARCH}>Advanced Search</S.NavbarLink>
 					<S.NavbarLink to='/watchlater'> Watch Later</S.NavbarLink>
 				</S.NavbarLinkContainer>
 			</S.LeftContainer>
